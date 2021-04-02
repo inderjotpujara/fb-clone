@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,14 +7,18 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
+
   constructor() { }
 
- 
-
   ngOnInit(): void {
+  }
 
-   
+  login(form:NgForm):void{
+
+  }
+
+  openRegister():void{
+    console.log("Working")
   }
 
 }
