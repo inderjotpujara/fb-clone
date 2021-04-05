@@ -165,12 +165,14 @@
 .tagline{
     text-align: center;
    letter-spacing: 0.7px;
+   margin-right: 39px;
+   /* margin-left: 680px; */
 }
 .footer{
     margin-top: 220px;
     height: 60vh;
     align-self: flex-end;
-    width: 1200px;
+    width: 1400px;
     background-color: white;
     display: flex;
     align-items: center;
