@@ -1,24 +1,34 @@
-<div class="home-container">
-    <div class= "home-header row">
-        <div class="home-header-left col">
-            <img src="https://1000logos.net/wp-content/uploads/2016/11/Facebook-logo.png" alt="dlogo" >
-            <i class="fa fa-search icon round" aria-hidden="true"></i>
-                  <input type="search" placeholder="Search Facebook" class="rounded-pill search">
 
         </div>
-
-        <div class="home-header-left col">
-            <!-- <a href="#" class="fa fa-facebook rounded-circle"></a> -->
-            <i class="fas fa-home"></i>
- 
-                  <input type="search" placeholder="Search" >
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="post"
+            placeholder="What's on ypur mind?"
+            [(ngModel)]="post.post"
+            name="post"
+            style="height: 40px; width: 240px"
+          />
         </div>
+        <button (click)="savePost()" class="btn btn-success">Post</button>
+      </div>
+      <div class="card-footer text-muted d-flex justify-content-around">
+        <div>Live videos</div>
+        <div>Photos/videos</div>
+        <div>Feelings/Activity</div>
+      </div>
 
-        <div class="home-header-left col">
-            <!-- <a href="#" class="fa fa-facebook rounded-circle"></a> -->
-            <img src="https://1000logos.net/wp-content/uploads/2016/11/Facebook-logo.png" alt="dlogo" >
- 
-                  <input type="search" placeholder="Search" >
-        </div>9
+      <div class="list row">
+        <div class="col-md-6">
+          <ul class="list-group">
+            <li class="list-group-item" *ngFor="let p of arr; let i = index">
+              {{ p.post }}
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </div>
+  <div class="col">Some fields</div>
 </div>
