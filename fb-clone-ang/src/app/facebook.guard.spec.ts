@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FbGuard } from './fb.guard';
+import { FacebookGuard } from './facebook.guard';
 
-describe('FbGuard', () => {
-  let guard: FbGuard;
+describe('FacebookGuard', () => {
+  let guard: FacebookGuard;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    guard = TestBed.inject(FbGuard);
+    guard = TestBed.inject(FacebookGuard);
   });
 
   it('should be created', () => {
