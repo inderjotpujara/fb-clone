@@ -1,8 +1,4 @@
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong">
-    Create New Account
-  </button>
   <!-- Modal -->
   <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
     aria-hidden="true">
@@ -14,7 +10,7 @@
             <div class="card-heading">It's quick and easy.</div>
           </div>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true"  (click)="closeSignUp()">&times;</span>
           </button>
         </div>
         <div class="modal-body">
@@ -53,11 +49,11 @@
             <div class="main-div">
               <div class="form-check border border-dark rounded checkbox-field text-left margin-right-10">
                 <label class="form-check-label margin-right-152" for="radioGap1">Female</label>
-                <input type="radio" class="form-check-input margin-top" formControlName="gender"  id="radioGap1" name="gender">
+                <input type="radio" class="form-check-input margin-top" formControlName="gender"  id="radioGap1" name="optradio" [value]="female">
               </div>
               <div class="form-check border border-dark rounded checkbox-field text-left">
                 <label class="form-check-label margin-right-170" for="radioGap2">Male</label>
-                <input type="radio" class="form-check-input margin-top" formControlName="gender" id="radioGap2" name="gender">
+                <input type="radio" class="form-check-input margin-top" formControlName="gender" id="radioGap2" name="optradio" [value]="male">
               </div>
             </div>
             <br>
