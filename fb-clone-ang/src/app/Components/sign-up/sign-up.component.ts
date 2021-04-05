@@ -1,13 +1,22 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl,Validators} from '@angular/forms';
+import { FacebookGuard } from 'src/app/facebook.guard';
+import { LoginComponent } from '../login/login.component';
+import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css']
+  styleUrls: ['./sign-up.component.css'],
+  providers:[LoginComponent,FacebookGuard]
 })
 export class SignUpComponent implements OnInit {
-  constructor() { }
+  
+  constructor(private comp:LoginComponent,
+    private router:Router) { }
+  
+  
   ngOnInit(): void {
     this.getDays();
     this.getYears();
@@ -22,6 +31,8 @@ export class SignUpComponent implements OnInit {
   public currentDay=(new Date()).getDate();
   public currentMonth=(new Date()).getMonth()+1;
   public currentMonthName:any;
+  male ="Male";
+  female ="Female";
   public months: any[] = [
     {
       monthId: 1,
@@ -102,4 +113,9 @@ export class SignUpComponent implements OnInit {
   {
     alert(JSON.stringify(this.signUpForm.value));
   }
+  closeSignUp(){
+    this.router.navigate(['\login'])
+    console.log("close signup")
+  }
 }
+
