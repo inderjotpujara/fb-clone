@@ -28,3 +28,41 @@
   .ms-n5 {
     margin-left: -40px;
 }
+.form-rounded {
+  border-radius: 2rem;
+  width: 295px;
+  height: 43px;
+  background-color: #ebeef5;
+  }
+
+  .img-watch{
+    height: 36px;
+    width: 36px;
+    margin-top: 5px;
+    margin-left: 110px;
+  }
+
+  .img-home{
+    height: 36px;
+    width: 36px;
+    margin-left: 32px;
+  }
+  .img-create{
+    height: 36px;
+    width: 36px;
+    margin-top: 5px;
+    margin-left: 190px;
+  }
+  .img-msg{
+    height: 36px;
+    width: 36px;
+    margin-top: 5px;
+    margin-left: 14px;
+  }
+  .side-nav-font{
+    font-size: .9375rem; 
+    font-weight: 500;
+  }
+  .side-nav-width{
+    width: 420px;
+  }

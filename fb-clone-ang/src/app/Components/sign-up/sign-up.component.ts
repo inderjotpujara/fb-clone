@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { FacebookGuard } from 'src/app/facebook.guard';
 import { LoginComponent } from '../login/login.component';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   providers: [LoginComponent, FacebookGuard]
 })
 export class SignUpComponent implements OnInit {
-
+  @ViewChild('signupModal') signUpModalRef;
   constructor(private comp: LoginComponent,
     private router: Router, private fb: FormBuilder) { }
 
@@ -123,7 +123,7 @@ export class SignUpComponent implements OnInit {
     }
   }
   closeSignUp() {
-    this.router.navigate(['\login'])
+    //this.router.navigate(['\login'])
   }
   validateAllFields(formGroup: FormGroup) {
     Object.keys(formGroup.controls).forEach((field) => {

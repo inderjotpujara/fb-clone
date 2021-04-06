@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
  openRegister(){
-    this.router.navigate(['\sign-up'])
+    //this.router.navigate(['\sign-up'])
     console.log("Working on button click")
   }
 
