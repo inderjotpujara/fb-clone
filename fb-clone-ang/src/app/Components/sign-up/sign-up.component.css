@@ -1,3 +1,12 @@
+.modal-dialog {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .modal-content {
+    margin: 0 auto;
+  }
 .card-title{
     color: #1C1E21;
     font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
