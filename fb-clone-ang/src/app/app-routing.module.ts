@@ -4,6 +4,7 @@ import { FacebookGuard } from './facebook.guard';
 import { LoginComponent } from './Components/login/login.component';
 import { SignUpComponent } from "./Components/sign-up/sign-up.component";
 import { HomeComponent } from './Components/home/home.component';
+import { PostComponent } from './post/post.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,11 @@ const routes: Routes = [
   {
     path:"home",
     component:HomeComponent,
+    canActivate:[FacebookGuard]
+  },
+  {
+    path:"post",
+    component:PostComponent,
     canActivate:[FacebookGuard]
   }
 ];
