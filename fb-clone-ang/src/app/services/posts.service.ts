@@ -9,17 +9,17 @@ export class PostsService {
 
   private dbPath = '/posts';
 
-  postsref: AngularFireList<Posts> = null;
+  postsref: AngularFireList<any> = null;
 
-  constructor(private db: AngularFireDatabase) { 
+  constructor(private db: AngularFireDatabase) {
     this.postsref = db.list(this.dbPath);
   }
 
-  getAll(): AngularFireList<Posts> {
+  getAll(): AngularFireList<any> {
     return this.postsref;
   }
 
-  create(post: Posts): any {
+  create(post): any {
     return this.postsref.push(post);
   }
 

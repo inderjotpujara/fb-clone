@@ -15,6 +15,8 @@ import { LoginComponent } from './Components/login/login.component';
 import { HomeComponent } from './Components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PostComponent } from './post/post.component';
+import { ProfileComponent } from './Components/profile/profile.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { PostComponent } from './post/post.component';
     SignUpComponent,
     LoginComponent,
     HomeComponent,
-    PostComponent
+    PostComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,7 @@ import { PostComponent } from './post/post.component';
     FormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
   ],
   providers: [],

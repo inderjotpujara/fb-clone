@@ -1,114 +1,113 @@
 .fa {
-    padding: 15px;
-    font-size: 20px;
-    width: 40px;
-    text-align: center;
-    /* text-decoration: none; */
-    /* margin: 5px 2px; */
-    height: 40px;
-  }
-  .fa:hover {
-    opacity: 0.7;
+  padding: 15px;
+  font-size: 20px;
+  width: 40px;
+  text-align: center;
+  /* text-decoration: none; */
+  /* margin: 5px 2px; */
+  height: 40px;
+}
+.fa:hover {
+  opacity: 0.7;
 }
 
 .fa-facebook {
-  background: #3B5998;
+  background: #3b5998;
   color: white;
 }
-  .home-header{
-      background-color: rgb(211, 197, 197);
-  }
-  img{
-      height: 45px;
-  }
-  .search{
-      height: 30px;
-      width: 180px;
-  }
-  .ms-n5 {
-    margin-left: -40px;
+.home-header {
+  background-color: rgb(211, 197, 197);
+}
+img {
+  height: 45px;
+}
+.search {
+  height: 30px;
+  width: 180px;
+}
+.ms-n5 {
+  margin-left: -40px;
 }
 .form-rounded {
   border-radius: 2rem;
   width: 295px;
   height: 43px;
   background-color: #ebeef5;
-  }
+}
 
-  .img-watch{
-    height: 36px;
-    width: 36px;
-    margin-top: 5px;
-    margin-left: 110px;
-  }
+.img-watch {
+  height: 36px;
+  width: 36px;
+  margin-top: 5px;
+  margin-left: 110px;
+}
 
-  .img-home{
-    height: 36px;
-    width: 36px;
-    margin-left: 32px;
-   
-  }
-  .img-create{
-    height: 36px;
-    width: 36px;
-    margin-top: 5px;
-    margin-left: 190px;
-  }
-  .img-msg{
-    height: 36px;
-    width: 36px;
-    margin-top: 5px;
-    margin-left: 14px;
-  }
-  .side-nav-font{
-    font-size: .9375rem; 
-    font-weight: 500;
-  }
-  .side-nav-width{
-    width: 420px;
-  }
-  .card{
-    height: 160px;
-    width:68%;
-    border-radius: 20px;
-  }
-  .post-input{
-    width: 550px;
-    height: 50px;
-  }
-  .post-img{
-    height: 50px;
-    width: 50px;
-    border-radius:20px;
-  }
-  .post-live-img{
-    height: 70px;
-    width: 60px;
-  }
-  .post-photo-img{
-    height: 35px;
-    width: 35px;
-  }
-  .post-photo-activity{
-    height: 60px;
-    width: 60px;
-  }
-  .margin-left-live{
-    margin-left: 15px;
-  }
-  .margin-left-photo{
-    margin-left: 70px;
-    margin-top: 10px;
-  }
-  .margin-left-activity{
-    margin-left: 50px;
-  }
-  button{
-    padding: 0;
-    border: none;
-    background: none;
-  }
-  .preview{
-    width: 304px;
-    height: 68px;
-  }
+.img-home {
+  height: 36px;
+  width: 36px;
+  margin-left: 32px;
+}
+.img-create {
+  height: 36px;
+  width: 36px;
+  margin-top: 5px;
+  margin-left: 190px;
+}
+.img-msg {
+  height: 36px;
+  width: 36px;
+  margin-top: 5px;
+  margin-left: 14px;
+}
+.side-nav-font {
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+.side-nav-width {
+  width: 420px;
+}
+.card {
+  height: 160px;
+  width: 68%;
+  border-radius: 20px;
+}
+.post-input {
+  width: 550px;
+  height: 50px;
+}
+.post-img {
+  height: 50px;
+  width: 50px;
+  border-radius: 20px;
+}
+.post-live-img {
+  height: 70px;
+  width: 60px;
+}
+.post-photo-img {
+  height: 35px;
+  width: 35px;
+}
+.post-photo-activity {
+  height: 60px;
+  width: 60px;
+}
+.margin-left-live {
+  margin-left: 15px;
+}
+.margin-left-photo {
+  margin-left: 70px;
+  margin-top: 10px;
+}
+.margin-left-activity {
+  margin-left: 50px;
+}
+button {
+  padding: 0;
+  border: none;
+  background: none;
+}
+.preview {
+  width: 304px;
+  height: 68px;
+}
