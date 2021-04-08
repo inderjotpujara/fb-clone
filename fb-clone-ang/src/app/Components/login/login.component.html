@@ -1,76 +1,82 @@
 <div class="login_form_wrapper">
-    <div class="container">
-      <div class="row justify-content-end align-middle mt-5">
-        <div class="logo col-md-7 justify-content-left">
-          <img
-            src="./assets/Fb1.png"
-            alt="fb logo"
-            style="height: 60px; margin-top: 120px"
-          />
-          <h1 style="font-weight: 500">
-            Facebook helps you connect and share with the people in your life.
-          </h1>
-        </div>
-        <div
-          class="col-md-5 col-md-offset-2 rounded mt-5"
-          style="box-shadow: 0px 0px 8px rgba(75, 73, 74, 0.644); height: 300px;"
-        >
-          <!-- login_wrapper -->
-          <form  #form="ngForm" class="login_wrapper" (ngSubmit)="login(form)">
-            <div class="formsix-pos">
-              <div class="form-group i-email">
-                <input
-                  type="email"
-                  name="email"
-                  ngModel
-                  class="form-control"
-                  placeholder="Email Address or phone number"
-                  required
-                />
-              </div>
+  <div class="container">
+    <div class="row justify-content-end align-middle mt-5">
+      <div class="logo col-md-7 justify-content-left">
+        <img
+          src="./assets/Fb1.png"
+          alt="fb logo"
+          style="height: 60px; margin-top: 120px"
+        />
+        <h1 style="font-weight: 500">
+          Facebook helps you connect and share with the people in your life.
+        </h1>
+      </div>
+      <div
+        class="col-md-5 col-md-offset-2 rounded mt-5"
+        style="box-shadow: 0px 0px 8px rgba(75, 73, 74, 0.644); height: 300px"
+      >
+        <!-- login_wrapper -->
+        <form #form="ngForm" class="login_wrapper" (ngSubmit)="login(form)">
+          <div class="formsix-pos">
+            <div class="form-group i-email">
+              <input
+                type="email"
+                name="email"
+                [(ngModel)]="username"
+                class="form-control"
+                placeholder="Email Address or phone number"
+                required
+              />
             </div>
-  
-            <div class="formsix-e">
-              <div class="form-group i-password">
-                <input
-                  type="password"
-                  class="form-control"
-                  name="password"
-                  ngModel
-                  placeholder="Password"
-                  required
-                />
-              </div>
-            </div>
-            <div class="login_btn_wrapper">
-              <!-- <a href="#" class="btn btn-primary login_btn"> Login </a>  -->
-              <button type="submit" class="btn btn-primary"  style="width: 450px" [disabled]="form.valid||form.pending">
-                Log In
-              </button>
-  
-            </div>
+          </div>
 
-            <div class="login_message" style="text-align: center">
-              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong" (click)="openRegister()">
-                Create New Account
-              </button>
+          <div class="formsix-e">
+            <div class="form-group i-password">
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                [(ngModel)]="password"
+                placeholder="Password"
+                required
+              />
             </div>
+          </div>
+          <div class="login_btn_wrapper">
+            <!-- <a href="#" class="btn btn-primary login_btn"> Login </a>  -->
+            <button type="submit" class="btn btn-primary" style="width: 450px">
+              Log In
+            </button>
+          </div>
 
-            <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong">
+          <div class="login_message" style="text-align: center">
+            <button
+              type="button"
+              class="btn btn-success"
+              data-toggle="modal"
+              data-target="#exampleModalLong"
+              (click)="openRegister()"
+            >
+              Create New Account
+            </button>
+          </div>
+
+          <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalLong">
               Create New Account
             </button> -->
+        </form>
 
-
-          </form>
-          
-          <!-- /.login_wrapper-->
-        </div>
-        <div class="tagline">
-          <p class="tagline"><strong>Create a Page</strong> for a celebrity, band or buisness</p>
-        </div>
+        <!-- /.login_wrapper-->
+      </div>
+      <div class="tagline">
+        <p class="tagline">
+          <strong>Create a Page</strong> for a celebrity, band or buisness
+        </p>
       </div>
     </div>
   </div>
-  <!-- <footer >
+</div>
+<!-- <footer >
     <img src="./assets/Footer.png" alt="Footer" class="footer">
   </footer> -->
+<app-sign-up></app-sign-up>

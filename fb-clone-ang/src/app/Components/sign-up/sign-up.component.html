@@ -1,71 +1,156 @@
-
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="modal-header-view">
-            <div class="card-title">Sign Up</div>
-            <div class="card-heading">It's quick and easy.</div>
-          </div>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true"  (click)="closeSignUp()">&times;</span>
-          </button>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModalLong"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true"
+  data-backdrop="static"
+  data-keyboard="false"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-header-view">
+          <div class="card-title">Sign Up</div>
+          <div class="card-heading">It's quick and easy.</div>
         </div>
-        <div class="modal-body">
-          <form [formGroup]="signUpForm">
-            <div class="main-div">
-              <input type="text" formControlName="firstName" class="form-control margin-right-10"
-                placeholder="First name" /><br>
-              <input type="text" formControlName="surName" class="form-control" placeholder="Surname" /><br>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true" (click)="closeSignUp()">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="signUpForm">
+          <div class="main-div">
+            <input
+              type="text"
+              formControlName="firstName"
+              class="form-control margin-right-10"
+              placeholder="First name"
+            /><br />
+            <input
+              type="text"
+              formControlName="surName"
+              class="form-control"
+              placeholder="Surname"
+            /><br />
+          </div>
+          <br />
+          <input
+            type="text"
+            formControlName="emailAddress"
+            class="form-control"
+            placeholder="Email address"
+          /><br />
+          <input
+            type="password"
+            formControlName="newPassword"
+            class="form-control"
+            placeholder="New password"
+          />
+          <br />
+          <input
+            type="test"
+            formControlName="imgUrl"
+            class="form-control"
+            placeholder="Image URL"
+          />
+          <div class="date-lable">Date of birth</div>
+          <span>
+            <select
+              title="Day"
+              formControlName="day"
+              class="form-select select-button date-field"
+              style="margin-right: 5px"
+              [(ngModel)]="selectionDay"
+            >
+              <option [ngValue]="undefined" disabled selected>
+                {{ currentDay }}
+              </option>
+              <option *ngFor="let day of days" [ngValue]="day">
+                {{ day }}
+              </option>
+            </select>
+            <select
+              title="Month"
+              formControlName="month"
+              class="form-select select-button date-field margin-right-5"
+              [(ngModel)]="selectionMonth"
+            >
+              <option [ngValue]="undefined" disabled selected>
+                {{ currentMonthName }}
+              </option>
+              <option *ngFor="let month of months" [ngValue]="month.monthName">
+                {{ month.monthName }}
+              </option>
+            </select>
+            <select
+              title="Year"
+              formControlName="year"
+              class="form-select select-button date-field"
+              [(ngModel)]="selectionYear"
+            >
+              <option [ngValue]="undefined" disabled selected>
+                {{ currentYear }}
+              </option>
+              <option *ngFor="let year of years" [ngValue]="year">
+                {{ year }}
+              </option>
+            </select>
+          </span>
+          <div class="date-lable">Gender</div>
+          <div class="main-div">
+            <div
+              class="form-check border border-dark rounded checkbox-field text-left margin-right-10"
+            >
+              <label class="form-check-label margin-right-152" for="radioGap1"
+                >Female</label
+              >
+              <input
+                type="radio"
+                class="form-check-input margin-top"
+                formControlName="gender"
+                id="radioGap1"
+                name="optradio"
+                [value]="female"
+              />
             </div>
-            <br>
-            <input type="text" formControlName="emailAddress" class="form-control" placeholder="Email address" /><br>
-            <input type="text" formControlName="newPassword" class="form-control" placeholder="New password" />
-            <div class="date-lable">Date of birth</div>
-            <span>
-              <select title="Day" formControlName="day" class="form-select select-button date-field"
-                style="margin-right:5px;" [(ngModel)]="selectionDay">
-                <option [ngValue]="undefined" disabled selected>{{currentDay}}</option>
-                <option *ngFor="let day of days" [ngValue]="day">
-                  {{ day }}
-                </option>
-              </select>
-              <select title="Month" formControlName="month" class="form-select select-button date-field margin-right-5" [(ngModel)]="selectionMonth">
-                <option [ngValue]="undefined" disabled selected>{{currentMonthName}}</option>
-                <option *ngFor="let month of months" [ngValue]="month.monthName">
-                  {{ month.monthName }}
-                </option>
-              </select>
-              <select title="Year" formControlName="year" class="form-select select-button date-field"  [(ngModel)]="selectionYear">
-                <option [ngValue]="undefined" disabled selected>{{currentYear}}</option>
-                <option *ngFor="let year of years" [ngValue]="year">
-                  {{ year }}
-                </option>
-              </select>
-            </span>
-            <div class="date-lable">Gender</div>
-            <div class="main-div">
-              <div class="form-check border border-dark rounded checkbox-field text-left margin-right-10">
-                <label class="form-check-label margin-right-152" for="radioGap1">Female</label>
-                <input type="radio" class="form-check-input margin-top" formControlName="gender"  id="radioGap1" name="optradio" [value]="female">
-              </div>
-              <div class="form-check border border-dark rounded checkbox-field text-left">
-                <label class="form-check-label margin-right-170" for="radioGap2">Male</label>
-                <input type="radio" class="form-check-input margin-top" formControlName="gender" id="radioGap2" name="optradio" [value]="male">
-              </div>
+            <div
+              class="form-check border border-dark rounded checkbox-field text-left"
+            >
+              <label class="form-check-label margin-right-170" for="radioGap2"
+                >Male</label
+              >
+              <input
+                type="radio"
+                class="form-check-input margin-top"
+                formControlName="gender"
+                id="radioGap2"
+                name="optradio"
+                [value]="male"
+              />
             </div>
-            <br>
-            <p class="term">
-              By clicking Sign Up, you agree to our Terms, Data Policy and Cookie Policy. You may receive SMS
-              notifications from us and can opt out at any time.
-            </p>
+          </div>
+          <br />
+          <p class="term">
+            By clicking Sign Up, you agree to our Terms, Data Policy and Cookie
+            Policy. You may receive SMS notifications from us and can opt out at
+            any time.
+          </p>
           <div class="text-center">
-            <button type="button" class="button-size" (click)="onSignUp()">Sign Up</button>
+            <button type="button" class="button-size" (click)="onSignUp()">
+              Sign Up
+            </button>
           </div>
-          </form>
-        </div>
+        </form>
       </div>
     </div>
   </div>
+</div>

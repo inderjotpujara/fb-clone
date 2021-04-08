@@ -1,38 +1,43 @@
-
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl,Validators} from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { FacebookGuard } from 'src/app/facebook.guard';
 import { LoginComponent } from '../login/login.component';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
+import Users from 'src/app/models/user';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css'],
-  providers:[LoginComponent,FacebookGuard]
+  providers: [LoginComponent, FacebookGuard]
 })
 export class SignUpComponent implements OnInit {
-  
-  constructor(private comp:LoginComponent,
-    private router:Router) { }
-  
-  
+  @ViewChild('signupModal') signUpModalRef;
+  arr1: any;
+  status = true;
+  constructor(private comp: LoginComponent,
+    private router: Router, private fb: FormBuilder, private userService: UsersService) { }
   ngOnInit(): void {
-    this.getDays();
+    //this.getDays();
+    this.signUpForm.controls['day'].setValue(this.currentDay)
     this.getYears();
     this.getCurrentMonthName();
+    this.getNumberOfDays();
+    this.status = false;
   }
-  public days: any[] = []; 
+  public days: any[] = [];
   public years: any[] = [];
   public selectionDay: any;
   public selectionMonth: any;
-  public selectionYear:any;
-  public currentYear=(new Date()).getFullYear();
-  public currentDay=(new Date()).getDate();
-  public currentMonth=(new Date()).getMonth()+1;
-  public currentMonthName:any;
-  male ="Male";
-  female ="Female";
+  public selectionYear: any;
+  public currentYear = (new Date()).getFullYear();
+  public currentDay = (new Date()).getDate();
+  public currentMonth = (new Date()).getMonth() + 1;
+  public currentMonthName: any;
+  male = "Male";
+  female = "Female";
   public months: any[] = [
     {
       monthId: 1,
@@ -82,40 +87,75 @@ export class SignUpComponent implements OnInit {
       monthId: 12,
       monthName: 'Dec',
     }];
-  signUpForm = new FormGroup({
-    firstName: new FormControl('', Validators.required),
-    surName: new FormControl(''),
-    emailAddress: new FormControl(''),
-    newPassword: new FormControl(''),
-    day: new FormControl(''),
-    month: new FormControl(''),
-    year: new FormControl(''),
-    gender: new FormControl(''),
+  signUpForm = this.fb.group({
+    firstName: [null, Validators.required],
+    surName: [null, Validators.required],
+    emailAddress: [null, Validators.required],
+    newPassword: [null, Validators.required],
+    day: [this.currentDay, Validators.required],
+    month: [this.currentMonth, Validators.required],
+    year: [this.currentYear, Validators.required],
+    gender: [null, Validators.required],
+    imgUrl: [null, Validators.required],
   });
   get firstName() {
     return this.signUpForm.get('firstName');
   }
-  getDays(){
+  getDays() {
     for (let i = 1; i <= 31; i++) {
       this.days.push(i);
     }
   }
-  getYears(){
-    for (let i = this.currentYear; i >=1905 ; i--) {
+  getYears() {
+    for (let i = this.currentYear; i >= 1905; i--) {
       this.years.push(i);
     }
   }
-  getCurrentMonthName(){
+  getCurrentMonthName() {
     let monthData = this.months.filter((m) => m.monthId == this.currentMonth);
-    this.currentMonthName=monthData[0].monthName;
+    this.currentMonthName = monthData[0].monthName;
   }
-  onSignUp()
-  {
-    alert(JSON.stringify(this.signUpForm.value));
+  onSignUp() {
+    // alert(JSON.stringify(this.signUpForm.value));
+    console.log(this.signUpForm.value)
+    this.saveUser();
+    localStorage.setItem("user", this.signUpForm.value.emailAddress);
+    localStorage.setItem("pass", this.signUpForm.value.newPassword);
+    this.userService.setuser(this.signUpForm.value);
+    this.router.navigate(['home']);
   }
-  closeSignUp(){
-    this.router.navigate(['\login'])
+  closeSignUp() {
+    // this.router.navigate(['\login'])
     console.log("close signup")
   }
-}
+  getNumberOfDays() {
+    let Month = this.signUpForm.value.month;
+    let Year = this.signUpForm.value.year
+    //console.log(this.signUpForm.value.month)
+    this.days = [];
+    let month = Month;
+    let year = Year
+    let noOfDays = new Date(year, month, 0).getDate();
+    for (let i = 1; i <= noOfDays; i++) {
+      this.days.push(i);
+    }
+  }
 
+  saveUser(): void {
+    this.userService.create(this.signUpForm.value).then(() => {
+      console.log('Created new user successfully!');
+    });
+  }
+
+  retrievePosts(): void {
+    this.userService.getAll().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ key: c.payload.key, ...c.payload.val() })
+        )
+      )
+    ).subscribe(data => {
+      this.arr1 = data;
+    });
+  }
+}
