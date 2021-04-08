@@ -1,107 +1,107 @@
 .modal-dialog {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-  }
-  .modal-content {
-    margin: 0 auto;
-  }
-.card-title{
-    color: #1C1E21;
-    font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
-    font-size: 32px;
-    line-height: 38px;
-    margin-bottom: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
-.card{
-    width: 500px;
-    margin-left: 500px;
+.modal-content {
+  margin: 0 auto;
 }
-.card-heading{
-    color: #606770;
-    font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
-    font-size: 15px;
-    line-height: 24px;
+.card-title {
+  color: #1c1e21;
+  font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
+  font-size: 32px;
+  line-height: 38px;
+  margin-bottom: 0;
 }
-.select-button{
-    width: 147px;
+.card {
+  width: 500px;
+  margin-left: 500px;
 }
-.margin-left{
-    margin-left:20px
+.card-heading {
+  color: #606770;
+  font-family: SFProText-Regular, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 24px;
 }
-input{
-    background: #F5F6F7;
+.select-button {
+  width: 147px;
 }
-.date-lable{
-    color: #606770;
-    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
-    font-size: 12px;
-    font-weight: normal;
-    line-height: 20px;
-    margin-bottom: 0;
-    margin-top: 10px;
+.margin-left {
+  margin-left: 20px;
 }
-.date-field{
-    border-radius: 4px;
-    color: #1C1E21;
-    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
-    font-size: 15px;
-    font-weight: normal;
-    height: 36px;
-    line-height: 20px;
-    width: 152px;
+input {
+  background: #f5f6f7;
 }
-.modal-header-view{
-    display: flex;
-    flex-direction: column;
+.date-lable {
+  color: #606770;
+  font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 20px;
+  margin-bottom: 0;
+  margin-top: 10px;
 }
-.checkbox-field{
-    color: #1C1E21;
-    font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    font-weight: normal;
-    height: 36px;
-    line-height: 20px;
-    width: 228px;
-    padding: 10px;
+.date-field {
+  border-radius: 4px;
+  color: #1c1e21;
+  font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: normal;
+  height: 36px;
+  line-height: 20px;
+  width: 152px;
 }
-.term{
-    color: #777;
-    font-size: 12px;
+.modal-header-view {
+  display: flex;
+  flex-direction: column;
 }
-.button-size{
-    background: none;
-    background-color: #00A400;
-    border: none;
-    border-radius: 6px;
-    box-shadow: none;
-    color: #fff;
-    font-size: 18px;
-    font-weight: 590;
-    height: 36px;
-    overflow: hidden;
-    padding: 0 82px;
-    text-shadow: none;
-    margin-top: 14px;
-    margin-bottom: 14px;
+.checkbox-field {
+  color: #1c1e21;
+  font-family: SFProText-Medium, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  height: 36px;
+  line-height: 20px;
+  width: 228px;
+  padding: 10px;
 }
-.main-div{
-    display: flex;
-    flex-direction: row;
+.term {
+  color: #777;
+  font-size: 12px;
 }
-.margin-right-10{
-    margin-right: 10px;
+.button-size {
+  background: none;
+  background-color: #00a400;
+  border: none;
+  border-radius: 6px;
+  box-shadow: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 590;
+  height: 36px;
+  overflow: hidden;
+  padding: 0 82px;
+  text-shadow: none;
+  margin-top: 14px;
+  margin-bottom: 14px;
 }
-.margin-right-5{
-    margin-right: 5px;
+.main-div {
+  display: flex;
+  flex-direction: row;
 }
-.margin-right-152{
-    margin-right: 152px;
+.margin-right-10 {
+  margin-right: 10px;
 }
-.margin-right-170{
-    margin-right: 170px;
+.margin-right-5 {
+  margin-right: 5px;
 }
-.margin-top{
-    margin-top: 2px;
+.margin-right-152 {
+  margin-right: 152px;
+}
+.margin-right-170 {
+  margin-right: 170px;
+}
+.margin-top {
+  margin-top: 2px;
 }

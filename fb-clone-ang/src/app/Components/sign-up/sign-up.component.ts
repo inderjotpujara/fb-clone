@@ -1,9 +1,12 @@
 
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { FacebookGuard } from 'src/app/facebook.guard';
 import { LoginComponent } from '../login/login.component';
 import { Router } from '@angular/router';
+import { UsersService } from 'src/app/services/users.service';
+import Users from 'src/app/models/user';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sign-up',
@@ -13,17 +16,23 @@ import { Router } from '@angular/router';
 })
 export class SignUpComponent implements OnInit {
   @ViewChild('signupModal') signUpModalRef;
+  arr1: any;
+  status = true;
   constructor(private comp: LoginComponent,
-    private router: Router, private fb: FormBuilder) { }
-
-
+    private router: Router, private fb: FormBuilder, private userService: UsersService) { }
   ngOnInit(): void {
+    //this.getDays();
+    this.signUpForm.controls['day'].setValue(this.currentDay)
     this.getYears();
     this.getCurrentMonthName();
     this.getNumberOfDays();
+    this.status = false;
   }
   public days: any[] = [];
   public years: any[] = [];
+  public selectionDay: any;
+  public selectionMonth: any;
+  public selectionYear: any;
   public currentYear = (new Date()).getFullYear();
   public currentDay = (new Date()).getDate();
   public currentMonth = (new Date()).getMonth() + 1;
@@ -106,6 +115,11 @@ export class SignUpComponent implements OnInit {
   get gender() {
     return this.signUpForm.get('gender');
   }
+  getDays() {
+    for (let i = 1; i <= 31; i++) {
+      this.days.push(i);
+    }
+  }
   getYears() {
     for (let i = this.currentYear; i >= 1905; i--) {
       this.years.push(i);
@@ -116,14 +130,15 @@ export class SignUpComponent implements OnInit {
     this.currentMonthName = monthData[0].monthName;
   }
   onSignUp() {
-    if(this.signUpForm.valid){
-    alert(JSON.stringify(this.signUpForm.value));
-    }else{
+    if (this.signUpForm.valid) {
+      this.saveUser();
+      localStorage.setItem("user", this.signUpForm.value.emailAddress);
+      localStorage.setItem("pass", this.signUpForm.value.newPassword);
+      this.userService.setuser(this.signUpForm.value);
+      this.router.navigate(['home']);
+    } else {
       this.validateAllFields(this.signUpForm)
     }
-  }
-  closeSignUp() {
-    //this.router.navigate(['\login'])
   }
   validateAllFields(formGroup: FormGroup) {
     Object.keys(formGroup.controls).forEach((field) => {
@@ -136,9 +151,10 @@ export class SignUpComponent implements OnInit {
     });
   }
   getNumberOfDays() {
-    let Month=this.signUpForm.value.month;
-    let Year=this.signUpForm.value.year
-    this.days=[];
+    let Month = this.signUpForm.value.month;
+    let Year = this.signUpForm.value.year
+    //console.log(this.signUpForm.value.month)
+    this.days = [];
     let month = Month;
     let year = Year
     let noOfDays = new Date(year, month, 0).getDate();
@@ -146,5 +162,22 @@ export class SignUpComponent implements OnInit {
       this.days.push(i);
     }
   }
-}
 
+  saveUser(): void {
+    this.userService.create(this.signUpForm.value).then(() => {
+      console.log('Created new user successfully!');
+    });
+  }
+
+  retrievePosts(): void {
+    this.userService.getAll().snapshotChanges().pipe(
+      map(changes =>
+        changes.map(c =>
+          ({ key: c.payload.key, ...c.payload.val() })
+        )
+      )
+    ).subscribe(data => {
+      this.arr1 = data;
+    });
+  }
+}
