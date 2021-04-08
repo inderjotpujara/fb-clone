@@ -9,7 +9,9 @@ import { map } from 'rxjs/operators';
 })
 export class HomeComponent implements OnInit {
 url:any='';
+
 onSelectFile(event) {
+
   if (event.target.files && event.target.files[0]) {
     var reader = new FileReader();
     reader.readAsDataURL(event.target.files[0]); // read file as data url
@@ -40,4 +42,35 @@ onSelectFile(event) {
       this.arr = data;
     });
   }
+  onClick(){
+    alert("Work in progress")
+  }
+
+  showWIPAlert(){
+    alert("Work in progress")
+  }
+
+fileData: File = null;
+previewUrl:any = null;
+  fileProgress(fileInput: any) {
+    this.fileData = <File>fileInput.target.files[0];
+    this.preview();
+}
+
+preview() {
+  // Show preview 
+  var mimeType = this.fileData.type;
+  if (mimeType.match(/image\/*/) == null) {
+    return;
+  }
+
+  var reader = new FileReader();      
+  reader.readAsDataURL(this.fileData); 
+  reader.onload = (_event) => { 
+    this.previewUrl = reader.result; 
+  }
+}
+toArray(n){
+  return new Array(n)
+}
 }

@@ -46,6 +46,7 @@
     height: 36px;
     width: 36px;
     margin-left: 32px;
+   
   }
   .img-create{
     height: 36px;
@@ -65,4 +66,49 @@
   }
   .side-nav-width{
     width: 420px;
+  }
+  .card{
+    height: 160px;
+    width:68%;
+    border-radius: 20px;
+  }
+  .post-input{
+    width: 550px;
+    height: 50px;
+  }
+  .post-img{
+    height: 50px;
+    width: 50px;
+    border-radius:20px;
+  }
+  .post-live-img{
+    height: 70px;
+    width: 60px;
+  }
+  .post-photo-img{
+    height: 35px;
+    width: 35px;
+  }
+  .post-photo-activity{
+    height: 60px;
+    width: 60px;
+  }
+  .margin-left-live{
+    margin-left: 15px;
+  }
+  .margin-left-photo{
+    margin-left: 70px;
+    margin-top: 10px;
+  }
+  .margin-left-activity{
+    margin-left: 50px;
+  }
+  button{
+    padding: 0;
+    border: none;
+    background: none;
+  }
+  .preview{
+    width: 304px;
+    height: 68px;
   }
