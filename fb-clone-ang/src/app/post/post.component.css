@@ -8,6 +8,7 @@ body {
 
 .card {
     border:2p;
+    width: 1000px;
 }
 
 .ellipsis {

@@ -68,8 +68,10 @@ img {
 }
 .card {
   height: 160px;
-  width: 68%;
+  width: 72%;
   border-radius: 20px;
+  margin-top: 76px;
+  margin-left: 372px;
 }
 .post-input {
   width: 550px;
@@ -110,4 +112,23 @@ button {
 .preview {
   width: 304px;
   height: 68px;
+}
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.side-nav-bar{
+  overflow: hidden;
+  /* background-color: #333; */
+  position: fixed;
+  top: 62px;
+  width: 25%;
+}
+.post-card{
+  margin-left: 30px;
+  width: 50px;
 }
