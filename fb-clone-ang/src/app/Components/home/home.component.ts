@@ -12,6 +12,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  static path(): string {
+    throw new Error('Method not implemented.');
+  }
   url: any = '';
 
   onSelectFile(event) {
@@ -77,7 +80,7 @@ export class HomeComponent implements OnInit {
   }
 
   preview() {
-    // Show preview 
+    // Show preview
     var mimeType = this.fileData.type;
     if (mimeType.match(/image\/*/) == null) {
       return;
