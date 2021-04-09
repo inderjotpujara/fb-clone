@@ -14,8 +14,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './Components/login/login.component';
 import { HomeComponent } from './Components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PostComponent } from './post/post.component';
+import { PostComponent } from './Components/post/post.component';
 import { ProfileComponent } from './Components/profile/profile.component';
+import { HeaderComponent } from './Components/header/header.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ProfileComponent } from './Components/profile/profile.component';
     LoginComponent,
     HomeComponent,
     PostComponent,
-    ProfileComponent
+    ProfileComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,18 +1,16 @@
-
 body {
     background-color: #eee;
     font-family: "Poppins", sans-serif;
     font-weight: 300;
-    height: calc(100vh - 56px);
+    /* height: calc(100vh - 56px); */
+    /* overflow-y: auto; */
+
 }
 
 .card {
     border:2p;
-    width: 1000px;
-}
+    width: 100vh;
 
-.ellipsis {
-    color: #a09c9c
 }
 
 hr {
@@ -24,11 +22,6 @@ hr {
 .muted-color {
     color: #a09c9c;
     font-size: 13px
-}
-
-.ellipsis i {
-    margin-top: 3px;
-    cursor: pointer
 }
 
 .icons i {
