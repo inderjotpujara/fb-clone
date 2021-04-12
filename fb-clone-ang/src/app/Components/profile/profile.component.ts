@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
 import { PostsService } from 'src/app/services/posts.service';
@@ -14,6 +15,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(private userService: UsersService, private postsService: PostsService) { }
   user: any;
+
   ngOnInit(): void {
     this.getUser();
     this.retrievePosts();

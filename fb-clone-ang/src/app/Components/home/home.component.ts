@@ -5,6 +5,7 @@ import { UsersService } from 'src/app/services/users.service';
 import Posts from 'src/app/models/posts';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { FacebookService } from 'src/app/facebook.service';
 
 @Component({
   selector: 'app-home',
@@ -12,15 +13,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  static path(): string {
+    throw new Error('Method not implemented.');
+  }
   url: any = '';
   textpost: string;
   timenow: number;
   arr: any;
   post: Posts = new Posts();
   user: any;
-
-  constructor(private postsService: PostsService, private router: Router, private userService: UsersService, private fb: FormBuilder) {
-
+  constructor(private postsService: PostsService, private router: Router, private userService: UsersService, private fb: FormBuilder,
+    private facebookService: FacebookService,) {
   }
 
   ngOnInit(): void {
@@ -129,4 +132,8 @@ export class HomeComponent implements OnInit {
   checkChanges(index, item) {
     return item.key
   }
+  goToProfile() {
+    this.router.navigateByUrl('/profile')
+  }
+
 }
