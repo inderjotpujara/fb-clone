@@ -17,21 +17,11 @@ export class HomeComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
   url: any = '';
-
-  onSelectFile(event) {
-
-    if (event.target.files && event.target.files[0]) {
-      var reader = new FileReader();
-      reader.readAsDataURL(event.target.files[0]); // read file as data url
-      reader.onload = (event) => { // called once readAsDataURL is completed
-        this.url = event.target.result;
-      }
-    }
-  }
-
+  textpost: string;
+  timenow: number;
+  arr: any;
   post: Posts = new Posts();
   user: any;
-  arr: any;
   public friendslist = [
     { id: 1, name: 'Vaishak Chandra',src:'https://picsum.photos/id/237/200/200' },
     { id: 2, name: 'Shashank Yadav',src:'https://picsum.photos/id/37/200/200'  },
@@ -54,30 +44,32 @@ export class HomeComponent implements OnInit {
     { id: 19, name: 'Inderjot Singh',src:'https://picsum.photos/id/9/200/200'  },
     { id: 20, name: 'Sagar Devanga' ,src:'https://picsum.photos/id/1/200/200' },
   ];
-
+  
   constructor(private postsService: PostsService, private router: Router, private userService: UsersService, private fb: FormBuilder,
-    private facebookService:FacebookService,) {
+    private facebookService: FacebookService,) {
   }
 
   ngOnInit(): void {
     this.getUser();
+    this.retrievePosts();
+    this.timenow = new Date().valueOf();
   }
 
-  signUpForm = this.fb.group({
-    firstName: [null, Validators.required],
-    surName: [null, Validators.required],
-    emailAddress: [null, Validators.required],
-    newPassword: [null, Validators.required],
-
-    gender: [null, Validators.required],
-    imgUrl: [null, Validators.required],
-  });
-
   savePost(): void {
+    this.post.email = this.user.emailAddress;
+    this.post.name = this.user.firstName;
+    this.post.dp = this.user.imgUrl;
+    this.post.text = this.textpost;
+    this.post.postImg = this.url;
+    this.post.time = new Date().valueOf();
+    this.post.likes = 0;
     this.postsService.create(this.post).then(() => {
       console.log('Created new item successfully!');
     });
+    console.log(this.user);
   }
+
+
   retrievePosts(): void {
     this.postsService.getAll().snapshotChanges().pipe(
       map(changes =>
@@ -88,7 +80,25 @@ export class HomeComponent implements OnInit {
     ).subscribe(data => {
       this.arr = data;
     });
+    console.log(this.arr);
+
   }
+
+  toProfile() {
+    this.router.navigate(['profile']);
+  }
+
+  // retrievePosts(): void {
+  //   this.postsService.getAll().snapshotChanges().pipe(
+  //     map(changes =>
+  //       changes.map(c =>
+  //         ({ key: c.payload.key, ...c.payload.val() })
+  //       )
+  //     )
+  //   ).subscribe(data => {
+  //     this.arr = data;
+  //   });
+  // }
   onClick() {
     alert("Work in progress")
   }
@@ -115,7 +125,9 @@ export class HomeComponent implements OnInit {
     reader.readAsDataURL(this.fileData);
     reader.onload = (_event) => {
       this.previewUrl = reader.result;
+      this.url = this.previewUrl;
     }
+    console.log(this.url);
   }
   toArray(n) {
     return new Array(n)
@@ -132,7 +144,18 @@ export class HomeComponent implements OnInit {
     this.user = JSON.parse(this.userService.getuser());
     console.log(this.user);
   }
-  goToProfile(){
+  updateLikesDb(newItem: any) {
+    this.postsService.update(
+      newItem.key, { likes: newItem.likes }).then((val) => {
+      }).catch((err) => {
+        console.log(err);
+      })
+  }
+
+  checkChanges(index, item) {
+    return item.key
+  }
+  goToProfile() {
     this.router.navigateByUrl('/profile')
   }
 
