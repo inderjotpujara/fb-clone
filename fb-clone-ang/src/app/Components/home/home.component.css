@@ -18,7 +18,8 @@
   background-color: rgb(211, 197, 197);
 }
 img {
-  height:2.5rem;
+  height:2.0rem;
+  border-radius: 1rem;
 }
 .search {
   height: 30px;
@@ -150,4 +151,13 @@ div::-webkit-scrollbar-track {
 div::-webkit-scrollbar-thumb {
   background-color: darkgrey;
   outline: none;
+}
+.chat-nav-font {
+  font-size: 1.5em;
+  font-weight: 500;
+  color: #65676b;
+}
+.post-button{
+  background-color: #1b74e4;
+  padding: 0rem 2.5rem 0rem 2.5rem;
 }
