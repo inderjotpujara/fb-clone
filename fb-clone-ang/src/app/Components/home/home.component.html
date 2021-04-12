@@ -1,153 +1,337 @@
-
-
-<div class="d-flex flex-row p-0 m-0" style="max-height: calc(100vh - 0px); ">
-  <div class="side-nav-bar">
-    <nav class="navbar-expand-lg navbar-light bg-light mt-2">
-      <div class="mt-2">
-         <div class="col">
-        <button class="btn btn-danger" (click)="logout()">Log Out</button>
-      </div>
-        <button>
-          <img src="https://resources.pulse.icc-cricket.com/players/284/1.png" class="img-rounded img-home"
-            alt="Home" />
-          <span class="side-nav-font sticky-top" (click)="goToProfile()">MS Dhoni</span>
-        </button>
-      </div>
-      <div class="mt-3">
-        <button>
-          <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yR/r/tInzwsw2pVX.png" class="img-rounded img-home"
-            alt="Home" />
-          <span class="side-nav-font">COVID-19 Information Center</span>
-        </button>
-      </div>
-      <div class="mt-3">
-        <button>
-          <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yx/r/-XF4FQcre_i.png" class="img-rounded img-home"
-            alt="Home" />
-          <span class="side-nav-font">Friends</span>
-        </button>
-      </div>
-      <div class="mt-3">
-        <button>
-          <img src="https://static.xx.fbcdn.net/rsrc.php/v3/y1/r/l6e-P1BHJLy.png" class="img-rounded img-home"
-            alt="Home" />
-          <span class="side-nav-font">Most Recent</span>
-        </button>
-      </div>
-      <div class="mt-3">
-        <button>
-          <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yP/r/Zy9sJGThmCS.png" class="img-rounded img-home"
-            alt="Home" />
-          <span class="side-nav-font">Favorites</span>
-        </button>
-      </div>
-      <div class="mt-3">
-        <button>
-          <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yr/r/2uPlV4oORjU.png" class="img-rounded img-home"
-            alt="Home" />
-          <span class="side-nav-font">Saved</span>
-        </button>
-      </div>
-      <div class="mt-3">
-        <button>
-          <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/mk4dH3FK0jT.png" class="img-rounded img-home"
-            alt="Home" />
-          <span class="side-nav-font">Groups</span>
-        </button>
-      </div>
-      <div class="mt-3">
-        <button>
-          <img src="https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/9BDqQflVfXI.png" class="img-rounded img-home"
-            alt="Home" />
-          <span class="side-nav-font">Marketplace</span>
-        </button>
-      </div>
-      <div class="mt-3">
-        <button>
-          <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yG/r/A1HlI2LVo58.png" class="img-rounded img-home"
-            alt="Home" />
-          <span class="side-nav-font">Watch</span>
-        </button>
-      </div>
-      <div class="mt-3">
-        <button>
-          <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yv/r/QAyfjudAqqG.png" class="img-rounded img-home"
-            alt="Home" />
-          <span class="side-nav-font">Events</span>
-        </button>
-      </div>
-      <div class="mt-3">
-        <button>
-          <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yl/r/_JPdPzLmp9j.png" class="img-rounded img-home"
-            alt="Home" />
-          <span class="side-nav-font">Ad Center</span>
-        </button>
-      </div>
-      <div class="mt-3">
-        <button>
-          <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yk/r/qR88GIDM38e.png" class="img-rounded img-home"
-            alt="Home" />
-          <span class="side-nav-font">Ads Manager</span>
-        </button>
-      </div>
-      <div class="mt-3">
-        <button>
-          <img src="https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/3F9PVdA5J7i.png" class="img-rounded img-home"
-            alt="Home" />
-          <span class="side-nav-font">Blood Donations</span>
-        </button>
-      </div>
-    </nav>
+<div style="display: flex; flex-direction: row" class="row p-0 m-0">
+  <div style="display: flex; flex-direction: column;max-height: calc(100vh - 56px);overflow-y: hidden;" class="col-3 p-0 m-0 scrollable">
+    <div class="mt-2 ml-3">
+      <button>
+        <img
+          src="https://resources.pulse.icc-cricket.com/players/284/1.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font sticky-top">MS Dhoni</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yR/r/tInzwsw2pVX.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">COVID-19 Information Center</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yx/r/-XF4FQcre_i.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Friends</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/y1/r/l6e-P1BHJLy.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Most Recent</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yP/r/Zy9sJGThmCS.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Favorites</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yr/r/2uPlV4oORjU.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Saved</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/mk4dH3FK0jT.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Groups</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/9BDqQflVfXI.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Marketplace</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yG/r/A1HlI2LVo58.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Watch</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yv/r/QAyfjudAqqG.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Events</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yl/r/_JPdPzLmp9j.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Ad Center</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yk/r/qR88GIDM38e.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Ads Manager</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/3F9PVdA5J7i.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Blood Donations</span>
+      </button>
+    </div>
   </div>
-
-  <div class="card" style="max-height: calc(100vh - 56px); overflow-y: auto; overflow-x: hidden;">
-    <div class="card-body">
-      <form class="form-inline my-2 my-lg-0">
+  <div style="display: flex; flex-direction: column;max-height: calc(100vh - 56px);overflow-y: hidden; overflow-x: hidden;" class="col-6 p-0 m-0 scrollable w-100">
+    <div class="ml-4">
+      <div class="row mt-4 ml-4">
         <div class="mt-1">
-          <img src="https://resources.pulse.icc-cricket.com/players/284/1.png" class="img-rounded post-img"
-            alt="Home" />
-          <input class="form-control mr-sm-2 form-rounded post-input" type="search"
-            placeholder="What's on your mind, MS Dhoni?" aria-label="Search" />
+          <img
+            src="https://resources.pulse.icc-cricket.com/players/284/1.png"
+            class="img-rounded post-img"
+            alt="Home"
+          />
+        </div>
+        <div class="ml-2">
+          <input
+            class="form-control mr-sm-2 mt-2 input-rounded"
+            type="search"
+            placeholder="What's on your mind, MS Dhoni?"
+            aria-label="Search"
+          />
         </div>
 
-        <div *ngIf="previewUrl">
+        <div *ngIf="previewUrl" class="ml-4">
           <img [src]="previewUrl" class="preview" />
         </div>
+      </div>
+    </div>
 
-        <div style="display: flex; flex-direction: row">
-          <div class="margin-left-live">
-            <button (click)="onClick()">
-              <img
-                src="https://previews.123rf.com/images/misteremil/misteremil1805/misteremil180500024/102323134-live-camera-icon-isoalted-on-white-back.jpg"
-                class="img-rounded post-live-img" alt="Home" />
-              <span class="side-nav-font">Live Video</span>
-            </button>
-          </div>
+    <div style="display: flex; flex-direction: row" class="ml-4">
+      <div class="ml-4">
+        <button (click)="onClick()">
+          <img
+            src="https://previews.123rf.com/images/misteremil/misteremil1805/misteremil180500024/102323134-live-camera-icon-isoalted-on-white-back.jpg"
+            class="img-rounded post-live-img"
+            alt="Home"
+          />
+          <span class="side-nav-font">Live Video</span>
+        </button>
+      </div>
 
-          <div class="margin-left-photo file-upload mt-3">
-            <button>
-              <label for="upload-1">
-                <img
-                  src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-and-shapes-5/177800/233-512.png"
-                  class="img-rounded post-photo-img" alt="Home" />Photo/Video
-              </label>
-              <input type="file" id="upload-1" (change)="fileProgress($event)" hidden />
-            </button>
-          </div>
-          <div class="margin-left-activity">
-            <button>
-              <img
-                src="https://png.pngtree.com/png-vector/20190419/ourmid/pngtree-yellow-smiley-face-png-image_960884.jpg"
-                class="img-rounded post-photo-activity" alt="Home" />
-              <span class="side-nav-font">Feeling/Activity</span>
-            </button>
-          </div>
-        </div>
-      </form>
+      <div class="file-upload mt-3 ml-4">
+        <button>
+          <label for="upload-1">
+            <img
+              src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-and-shapes-5/177800/233-512.png"
+              class="img-rounded post-photo-img mr-2"
+              alt="Home"
+            />Photo/Video
+          </label>
+          <input
+            type="file"
+            id="upload-1"
+            (change)="fileProgress($event)"
+            hidden
+          />
+        </button>
+      </div>
+      <div class="ml-2">
+        <button>
+          <img
+            src="https://png.pngtree.com/png-vector/20190419/ourmid/pngtree-yellow-smiley-face-png-image_960884.jpg"
+            class="img-rounded post-photo-activity"
+            alt="Home"
+          />
+          <span class="side-nav-font">Feeling/Activity</span>
+        </button>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column;" >
       <div *ngFor="let item of toArray(10)">
         <app-post></app-post>
       </div>
-
+    </div>
+  </div>
+  <div style="display: flex; flex-direction: column;max-height: calc(100vh - 56px);overflow-y: hidden;" class="col-3 p-0 m-0 scrollable">
+    <div class="mt-2 ml-3">
+      <button>
+        <img
+          src="https://resources.pulse.icc-cricket.com/players/284/1.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font sticky-top">MS Dhoni</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yR/r/tInzwsw2pVX.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">COVID-19 Information Center</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yx/r/-XF4FQcre_i.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Friends</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/y1/r/l6e-P1BHJLy.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Most Recent</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yP/r/Zy9sJGThmCS.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Favorites</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yr/r/2uPlV4oORjU.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Saved</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/mk4dH3FK0jT.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Groups</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/ys/r/9BDqQflVfXI.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Marketplace</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yG/r/A1HlI2LVo58.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Watch</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yv/r/QAyfjudAqqG.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Events</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yl/r/_JPdPzLmp9j.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Ad Center</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yk/r/qR88GIDM38e.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Ads Manager</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-3">
+      <button>
+        <img
+          src="https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/3F9PVdA5J7i.png"
+          class="img-rounded"
+          alt="Home"
+        />
+        <span class="side-nav-font">Blood Donations</span>
+      </button>
     </div>
   </div>
 </div>

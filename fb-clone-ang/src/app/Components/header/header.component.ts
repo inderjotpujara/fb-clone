@@ -27,4 +27,10 @@ export class HeaderComponent implements OnInit {
   goToHome(){
     this.router.navigateByUrl('/home')
   }
+  logout() {
+    localStorage.removeItem('user');
+    localStorage.removeItem('pass');
+    localStorage.removeItem('userinfo');
+    this.router.navigate(['login']);
+  }
 }
