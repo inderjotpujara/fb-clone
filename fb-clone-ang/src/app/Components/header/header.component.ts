@@ -1,3 +1,4 @@
+import { FacebookService } from 'src/app/facebook.service';
 import { HomeComponent } from './../home/home.component';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -9,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  FacebookService: any;
 
 
   constructor(private router: Router

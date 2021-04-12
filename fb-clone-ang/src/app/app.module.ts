@@ -1,3 +1,4 @@
+import { FacebookGuard } from 'src/app/facebook.guard';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -38,8 +39,9 @@ import { HeaderComponent } from './Components/header/header.component';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+   
   ],
-  providers: [],
+  providers: [{ provide: FacebookGuard, useClass: FacebookGuard }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,7 +12,7 @@ import { HeaderComponent } from './Components/header/header.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: './login',
     pathMatch: 'full'
   },
   {
