@@ -14,7 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './Components/login/login.component';
 import { HomeComponent } from './Components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PostComponent } from './post/post.component';
+import { PostComponent } from './Components/post/post.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 
 

@@ -4,7 +4,7 @@ import { FacebookGuard } from './facebook.guard';
 import { LoginComponent } from './Components/login/login.component';
 import { SignUpComponent } from "./Components/sign-up/sign-up.component";
 import { HomeComponent } from './Components/home/home.component';
-import { PostComponent } from './post/post.component';
+import { PostComponent } from './Components/post/post.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 
 

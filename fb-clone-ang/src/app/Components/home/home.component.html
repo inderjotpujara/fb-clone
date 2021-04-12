@@ -155,7 +155,7 @@
     </svg>
     <!-- <img src="https://i.dlpng.com/static/png/1807873_preview_preview.webp" class="img-rounded img-msg" alt="Facebook Logo"> -->
   </button>
-  <button>
+  <button (click)="logout()">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="16"
@@ -174,17 +174,17 @@
 
 <div style="display: flex; flex-direction: row">
   <div class="side-nav-bar">
-    <nav
-      class="navbar-expand-lg navbar-light bg-light mt-2 side-nav-width"
-    >
+    <nav class="navbar-expand-lg navbar-light bg-light mt-2 side-nav-width">
       <div class="mt-2">
-        <button>
+        <button (click)="toProfile()">
           <img
-            src="https://resources.pulse.icc-cricket.com/players/284/1.png"
+            src="{{ user.imgUrl }}"
             class="img-rounded img-home"
             alt="Home"
           />
-          <span class="side-nav-font sticky-top">MS Dhoni</span>
+          <span class="side-nav-font sticky-top mx-2">{{
+            user.firstName
+          }}</span>
         </button>
       </div>
       <div class="mt-3">
@@ -312,18 +312,21 @@
 
   <div class="card">
     <div class="card-body">
-      <form class="form-inline my-2 my-lg-0">
-        <div class="mt-1">
+      <form #form="ngForm" class="form-inline my-2 my-lg-0">
+        <div class="mt-1 form-group">
           <img
-            src="https://resources.pulse.icc-cricket.com/players/284/1.png"
+            src="{{ user.imgUrl }}"
             class="img-rounded post-img"
             alt="Home"
           />
           <input
-            class="form-control mr-sm-2 form-rounded post-input"
+            class="form-control mr-sm-2 mx-2 form-rounded post-input"
             type="search"
-            placeholder="What's on your mind, MS Dhoni?"
+            placeholder="What's on your mind, {{ user.firstName }}?"
             aria-label="Search"
+            name="textpost"
+            [(ngModel)]="textpost"
+            class="form-control"
           />
         </div>
 
@@ -371,14 +374,15 @@
             </button>
           </div>
         </div>
+        <button (click)="savePost()">post</button>
       </form>
-      <div *ngFor="let item of toArray(10)">
-        <app-post></app-post>
+      <div *ngFor="let item of arr.reverse(); trackBy: checkChanges">
+        <app-post
+          [item]="item"
+          (newItemEvent)="updateLikesDb($event)"
+        ></app-post>
       </div>
-      <div class="col">
-        Some fields
-        <button class="btn btn-danger" (click)="logout()">Log Out</button>
-      </div>
+      <div class="col">Some fields</div>
     </div>
   </div>
 </div>

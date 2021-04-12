@@ -4,34 +4,25 @@
       <div class="card">
         <div class="d-flex justify-content-between p-2 px-3">
           <div class="d-flex flex-row align-items-center">
-            <img
-              src="https://www.newidea.com.au/media/67740/mickey-main.jpg"
-              width="50"
-              class="rounded-circle"
-            />
+            <img src="{{ item.dp }}" width="50" class="rounded-circle" />
             <div class="d-flex flex-column ml-2">
-              <span class="font-weight-bold">Vini CHimania</span>
-              <small>20 mins</small>
+              <span class="font-weight-bold">{{ item.name }}</span>
+              <small>{{ item.time }}</small>
             </div>
           </div>
         </div>
 
         <div class="p-2">
           <p class="text-justify">
-            Shin-chan follows the journey of five-year-old, Shinnosuke "Shin"
-            Nohara and his family, his pet dog Shiro, neighbours, and friends in
-            Kasukabe, Japan.
+            {{ item.text }}
           </p>
         </div>
-        <img
-          src="https://st1.bollywoodlife.com/wp-content/uploads/2020/09/FotoJet382.jpg"
-          class="img-fluid"
-        />
+        <img src="{{ item.postImg }}" class="img-fluid" />
 
         <hr />
         <div class="d-flex justify-content-between align-items-center">
           <div class="d-flex flex-row icons d-flex align-items-center">
-            <i class="fa fa-heart" aria-hidden="true"></i>
+            <i class="fa fa-heart" aria-hidden="true">{{ item.likes }}</i>
             <i class="fa fa-smile-o ml-2"></i>
           </div>
           <div class="d-flex flex-row muted-color">
@@ -45,6 +36,7 @@
             type="button"
             class="btn btn-light col"
             style="width: 70px; margin-right: 5px"
+            (click)="likeUpdate()"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
