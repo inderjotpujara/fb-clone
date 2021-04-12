@@ -30,10 +30,15 @@
           <div class="row d-flex justify-content-center">
             <div class="col-md-6 mt-2">
               <h2><strong>Shashank</strong></h2>
-              <p class="text-muted">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
-                quam numquam inventore minima blanditiis earum repudiandae.
-              </p>
+              <div style="height: 200px; width: 200px;">
+                <p  *ngIf="!isInfoEditing" class="text-muted">
+                    {{profileInfo}}
+                </p>
+                <input [(ngModel)]="profileInfo" *ngIf="isInfoEditing" type="text">
+                <button *ngIf="!isInfoEditing" (click)="isInfoEditing = !isInfoEditing"> edit info</button>
+                <button *ngIf="isInfoEditing"  (click)="isInfoEditing = !isInfoEditing; infoChanged()"> done</button>
+              </div>
+
             </div>
           </div>
         </section>
