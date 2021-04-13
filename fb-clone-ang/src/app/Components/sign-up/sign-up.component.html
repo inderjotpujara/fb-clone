@@ -40,8 +40,9 @@
               *ngIf="
                 (firstName.invalid && firstName.touched) || firstName.dirty
               "
+              class="text-dark margin-right-10"
             >
-              <small *ngIf="firstName.errors?.required" class="text-dark"
+              <small *ngIf="firstName.errors?.required"
                 ><b>What's your name</b></small
               >
             </div>

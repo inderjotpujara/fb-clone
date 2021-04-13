@@ -1,10 +1,11 @@
-<div style="display: flex; flex-direction: row" class="row p-0 m-0">
+<div style="display: flex; flex-direction: row" class="row p-0 m-0 homepage">
   <div
     style="
       display: flex;
       flex-direction: column;
       max-height: calc(100vh - 56px);
       overflow-y: hidden;
+      background-color: #f0f2f5;
     "
     class="col-3 p-0 m-0 scrollable"
   >
@@ -149,78 +150,83 @@
     "
     class="col-6 p-0 m-0 scrollable w-100"
   >
-    <div class="ml-4">
-      <div class="row mt-4 ml-4">
-        <div class="mt-1">
-          <img
-            src="{{ user.imgUrl }}"
-            class="img-rounded post-img"
-            alt="Home"
-          />
+    <div style="background-color: #f0f2f5">
+      <div class="ml-4" style="background-color: #f0f2f5">
+        <div class="row mt-4 ml-4">
+          <div class="mt-1">
+            <img
+              src="{{ user.imgUrl }}"
+              class="img-rounded post-img"
+              alt="Home"
+            />
+          </div>
+          <div class="ml-2">
+            <input
+              class="form-control mr-sm-2 mt-2 input-rounded"
+              type="search"
+              placeholder="What's on your mind, {{ user.firstName }}?"
+              aria-label="Search"
+              name="textpost"
+              [(ngModel)]="textpost"
+            />
+          </div>
+
+          <div *ngIf="previewUrl" class="ml-4">
+            <img [src]="previewUrl" class="preview" />
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: row" class="ml-4">
+        <div class="ml-4">
+          <button (click)="onClick()">
+            <img
+              src="https://previews.123rf.com/images/misteremil/misteremil1805/misteremil180500024/102323134-live-camera-icon-isoalted-on-white-back.jpg"
+              class="img-rounded post-live-img"
+              alt="Home"
+            />
+            <span class="side-nav-font">Live Video</span>
+          </button>
+        </div>
+
+        <div class="file-upload mt-3 ml-4">
+          <button>
+            <label for="upload-1">
+              <img
+                src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-and-shapes-5/177800/233-512.png"
+                class="img-rounded post-photo-img mr-2"
+                alt="Home"
+              />Photo/Video
+            </label>
+            <input
+              type="file"
+              id="upload-1"
+              (change)="fileProgress($event)"
+              hidden
+            />
+          </button>
         </div>
         <div class="ml-2">
-          <input
-            class="form-control mr-sm-2 mt-2 input-rounded"
-            type="search"
-            placeholder="What's on your mind, {{ user.firstName }}?"
-            aria-label="Search"
-            name="textpost"
-            [(ngModel)]="textpost"
-          />
-        </div>
-
-        <div *ngIf="previewUrl" class="ml-4">
-          <img [src]="previewUrl" class="preview" />
-        </div>
-      </div>
-    </div>
-
-    <div style="display: flex; flex-direction: row" class="ml-4">
-      <div class="ml-4">
-        <button (click)="onClick()">
-          <img
-            src="https://previews.123rf.com/images/misteremil/misteremil1805/misteremil180500024/102323134-live-camera-icon-isoalted-on-white-back.jpg"
-            class="img-rounded post-live-img"
-            alt="Home"
-          />
-          <span class="side-nav-font">Live Video</span>
-        </button>
-      </div>
-
-      <div class="file-upload mt-3 ml-4">
-        <button>
-          <label for="upload-1">
+          <button>
             <img
-              src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-and-shapes-5/177800/233-512.png"
-              class="img-rounded post-photo-img mr-2"
+              src="https://png.pngtree.com/png-vector/20190419/ourmid/pngtree-yellow-smiley-face-png-image_960884.jpg"
+              class="img-rounded post-photo-activity"
               alt="Home"
-            />Photo/Video
-          </label>
-          <input
-            type="file"
-            id="upload-1"
-            (change)="fileProgress($event)"
-            hidden
-          />
-        </button>
+            />
+            <span class="side-nav-font">Feeling/Activity</span>
+          </button>
+        </div>
+        <button (click)="savePost()">post</button>
       </div>
-      <div class="ml-2">
-        <button>
-          <img
-            src="https://png.pngtree.com/png-vector/20190419/ourmid/pngtree-yellow-smiley-face-png-image_960884.jpg"
-            class="img-rounded post-photo-activity"
-            alt="Home"
-          />
-          <span class="side-nav-font">Feeling/Activity</span>
-        </button>
-      </div>
-      <button (click)="savePost()">post</button>
     </div>
-    <div style="display: flex; flex-direction: column">
+    <div
+      style="display: flex; flex-direction: column; background-color: #f0f2f5"
+    >
       <div *ngFor="let item of arr.reverse(); trackBy: checkChanges">
         <app-post
           [item]="item"
           (newItemEvent)="updateLikesDb($event)"
+          (newItemEvent2)="updadateLikesArrayDb2($event)"
         ></app-post>
       </div>
     </div>
@@ -231,6 +237,7 @@
       flex-direction: column;
       max-height: calc(100vh - 56px);
       overflow-y: hidden;
+      background-color: #f0f2f5;
     "
     class="col-3 p-0 m-0 scrollable"
   >

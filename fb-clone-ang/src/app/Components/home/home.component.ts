@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit {
   arr: any;
   post: Posts = new Posts();
   user: any;
+  userLiked = [];
+
   constructor(private postsService: PostsService, private router: Router, private userService: UsersService, private fb: FormBuilder,
     private facebookService: FacebookService,) {
   }
@@ -38,12 +40,14 @@ export class HomeComponent implements OnInit {
     this.post.dp = this.user.imgUrl;
     this.post.text = this.textpost;
     this.post.postImg = this.url;
-    this.post.time = new Date().valueOf();
+    this.post.time = new Date().toISOString();
     this.post.likes = 0;
+    this.post.userLiked = [];
     this.postsService.create(this.post).then(() => {
       console.log('Created new item successfully!');
     });
     console.log(this.user);
+    console.log(this.post);
   }
 
 
@@ -122,12 +126,15 @@ export class HomeComponent implements OnInit {
     console.log(this.user);
   }
   updateLikesDb(newItem: any) {
+
     this.postsService.update(
       newItem.key, { likes: newItem.likes }).then((val) => {
       }).catch((err) => {
         console.log(err);
       })
+
   }
+
 
   checkChanges(index, item) {
     return item.key
@@ -135,5 +142,30 @@ export class HomeComponent implements OnInit {
   goToProfile() {
     this.router.navigateByUrl('/profile')
   }
+  updadateLikesArrayDb2(newItem2: any) {
+    console.log(newItem2.userliked);
+    console.log(newItem2.flag);
 
+    if (!newItem2.userliked) {
+      newItem2.userliked = []
+    }
+    if (newItem2.flag) {
+      newItem2.userliked.push(this.user.key);
+    } else {
+      newItem2.userliked.forEach((ele, idx) => {
+        if (ele === this.user.key) {
+          console.log("deleting");
+
+          newItem2.userliked.splice(idx, 1);
+        }
+      });
+    }
+
+    this.postsService.update(
+      newItem2.item, { userLiked: newItem2.userliked }).then((val) => {
+      }).catch((err) => {
+        console.log(err);
+      })
+    console.log(newItem2.userliked);
+  }
 }

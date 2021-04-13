@@ -4,6 +4,7 @@ export default class Posts {
   dp: string;
   text: string;
   postImg: string;
-  time: number;
+  time: string;
   likes: number;
+  userLiked: Array<any>;
 }

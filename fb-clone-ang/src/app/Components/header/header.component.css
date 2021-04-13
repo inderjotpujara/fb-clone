@@ -1,4 +1,3 @@
-
 .fa {
   padding: 15px;
   font-size: 20px;
@@ -12,13 +11,13 @@
 
 .fa-facebook {
   background: #3b5998;
-  color: white;
+  color: #b43243;
 }
 .home-header {
-  background-color: rgb(211, 197, 197);
+  background-color: #b43243;
 }
 img {
-  height:2.5rem;
+  height: 2.5rem;
 }
 .search {
   height: 30px;
@@ -43,7 +42,7 @@ img {
 .img-home {
   height: 1.7rem;
   width: 3rem;
-  margin-left:4rem;
+  margin-left: 4rem;
 }
 .img-create {
   height: 1.5rem;
@@ -119,13 +118,12 @@ button {
   top: 3.5rem;
   width: 20rem;
 } */
-.post-card{
+.post-card {
   margin-left: 30px;
   width: 50px;
 }
-.navbar-fixed{
+.navbar-fixed {
   position: fixed;
-
 }
 .input-rounded {
   border-radius: 2rem;

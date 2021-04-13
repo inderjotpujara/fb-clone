@@ -18,6 +18,7 @@ export class SignUpComponent implements OnInit {
   @ViewChild('signupModal') signUpModalRef;
   arr1: any;
   status = true;
+  status1 = true;
   constructor(private comp: LoginComponent,
     private router: Router, private fb: FormBuilder, private userService: UsersService) { }
   ngOnInit(): void {
@@ -130,6 +131,12 @@ export class SignUpComponent implements OnInit {
     this.currentMonthName = monthData[0].monthName;
   }
   onSignUp() {
+    // this.arr1.forEach((ele) => {
+    //   if (this.signUpForm.value.emailAddress == ele.emailAddress) {
+    //     alert("email exist")
+    //     this.status1 = false;
+    //   }
+    // });
     if (this.signUpForm.valid) {
       this.saveUser();
       localStorage.setItem("user", this.signUpForm.value.emailAddress);

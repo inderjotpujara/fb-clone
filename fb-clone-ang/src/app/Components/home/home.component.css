@@ -1,3 +1,6 @@
+.homepage {
+  background-color: #f0f2f5;
+}
 
 .fa {
   padding: 15px;
@@ -18,7 +21,7 @@
   background-color: rgb(211, 197, 197);
 }
 img {
-  height:2.5rem;
+  height: 2.5rem;
 }
 .search {
   height: 30px;
@@ -43,7 +46,7 @@ img {
 .img-home {
   height: 1.7rem;
   width: 3rem;
-  margin-left:4rem;
+  margin-left: 4rem;
 }
 .img-create {
   height: 1.5rem;
@@ -119,13 +122,12 @@ button {
   top: 3.5rem;
   width: 20rem;
 } */
-.post-card{
+.post-card {
   margin-left: 30px;
   width: 50px;
 }
-.navbar-fixed{
+.navbar-fixed {
   position: fixed;
-
 }
 .input-rounded {
   border-radius: 2rem;
@@ -137,7 +139,6 @@ button {
 .scrollable:hover {
   overflow-y: auto !important;
 }
-
 
 div::-webkit-scrollbar {
   width: 5px;
