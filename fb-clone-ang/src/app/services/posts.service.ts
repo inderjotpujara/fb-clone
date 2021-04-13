@@ -1,3 +1,4 @@
+import { PostComponent } from './../Components/post/post.component';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import Posts from '../models/posts';
@@ -17,6 +18,11 @@ export class PostsService {
 
   getAll(): AngularFireList<any> {
     return this.postsref;
+  }
+
+  getPostByUserId(id){
+    return this.db.database.ref('posts')
+    
   }
 
   create(post): any {

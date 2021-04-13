@@ -1,13 +1,21 @@
 <div style="display: flex; flex-direction: row" class="row p-0 m-0">
-  <div style="display: flex; flex-direction: column;max-height: calc(100vh - 56px);overflow-y: hidden;" class="col-3 p-0 m-0 scrollable">
+  <div
+    style="
+      display: flex;
+      flex-direction: column;
+      max-height: calc(100vh - 56px);
+      overflow-y: hidden;
+    "
+    class="col-3 p-0 m-0 scrollable"
+  >
     <div class="mt-2 ml-3">
-      <button>
+      <button (click)="goToProfile()">
         <img
-          src="https://resources.pulse.icc-cricket.com/players/284/1.png"
-          class="img-rounded"
+          src="{{ user.imgUrl }}"
+          class="img-rounded post-img mr-2"
           alt="Home"
         />
-        <span class="side-nav-font sticky-top">MS Dhoni</span>
+        <span class="side-nav-font sticky-top">{{ user.firstName }}</span>
       </button>
     </div>
     <div class="mt-3 ml-3">
@@ -131,12 +139,21 @@
       </button>
     </div>
   </div>
-  <div style="display: flex; flex-direction: column;max-height: calc(100vh - 56px);overflow-y: hidden; overflow-x: hidden;" class="col-6 p-0 m-0 scrollable w-100">
+  <div
+    style="
+      display: flex;
+      flex-direction: column;
+      max-height: calc(100vh - 56px);
+      overflow-y: hidden;
+      overflow-x: hidden;
+    "
+    class="col-6 p-0 m-0 scrollable w-100"
+  >
     <div class="ml-4">
       <div class="row mt-4 ml-4">
         <div class="mt-1">
           <img
-            src="https://resources.pulse.icc-cricket.com/players/284/1.png"
+            src="{{ user.imgUrl }}"
             class="img-rounded post-img"
             alt="Home"
           />
@@ -145,8 +162,10 @@
           <input
             class="form-control mr-sm-2 mt-2 input-rounded"
             type="search"
-            placeholder="What's on your mind, MS Dhoni?"
+            placeholder="What's on your mind, {{ user.firstName }}?"
             aria-label="Search"
+            name="textpost"
+            [(ngModel)]="textpost"
           />
         </div>
 
@@ -178,6 +197,7 @@
             />Photo/Video
           </label>
           <input
+          [id]="'123'"
             type="file"
             id="upload-1"
             (change)="fileProgress($event)"
@@ -195,14 +215,26 @@
           <span class="side-nav-font">Feeling/Activity</span>
         </button>
       </div>
+      <button (click)="savePost()">post</button>
     </div>
-    <div style="display: flex; flex-direction: column;" >
-      <div *ngFor="let item of toArray(10)">
-        <app-post></app-post>
+    <div style="display: flex; flex-direction: column">
+      <div *ngFor="let item of arr.reverse(); trackBy: checkChanges">
+        <app-post
+          [item]="item"
+          (newItemEvent)="updateLikesDb($event)"
+        ></app-post>
       </div>
     </div>
   </div>
-  <div style="display: flex; flex-direction: column;max-height: calc(100vh - 56px);overflow-y: hidden;" class="col-3 p-0 m-0 scrollable">
+  <div
+    style="
+      display: flex;
+      flex-direction: column;
+      max-height: calc(100vh - 56px);
+      overflow-y: hidden;
+    "
+    class="col-3 p-0 m-0 scrollable"
+  >
     <div class="mt-2 ml-3">
       <button>
         <img
