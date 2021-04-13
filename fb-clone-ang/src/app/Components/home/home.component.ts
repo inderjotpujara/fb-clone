@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { FacebookService } from 'src/app/facebook.service';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -23,6 +24,30 @@ export class HomeComponent implements OnInit {
   post: Posts = new Posts();
   user: any;
   userLiked = [];
+  postFlag = true;
+
+  public friendslist = [
+    { id: 1, name: 'Vaishak Chandra', src: 'https://picsum.photos/id/237/200/200' },
+    { id: 2, name: 'Shashank Yadav', src: 'https://picsum.photos/id/37/200/200' },
+    { id: 3, name: 'Virat Kohli', src: 'https://picsum.photos/id/23/200/200' },
+    { id: 4, name: 'Eoin Morgan', src: 'https://picsum.photos/id/27/200/200' },
+    { id: 5, name: 'Vini Chimania', src: 'https://picsum.photos/id/17/200/200' },
+    { id: 6, name: 'Karthik Hr', src: 'https://picsum.photos/id/337/200/200' },
+    { id: 7, name: 'Muthu Patil', src: 'https://picsum.photos/id/237/200/200' },
+    { id: 8, name: 'Sadanand Roy', src: 'https://picsum.photos/id/238/200/200' },
+    { id: 9, name: 'Hina Khan', src: 'https://picsum.photos/id/247/200/200' },
+    { id: 10, name: 'Vijay Rai', src: 'https://picsum.photos/id/323/200/200' },
+    { id: 11, name: 'Aishwarya N', src: 'https://picsum.photos/id/293/200/200' },
+    { id: 12, name: 'Manjunath Aithal', src: 'https://picsum.photos/id/223/200/200' },
+    { id: 13, name: 'Prashanth K', src: 'https://picsum.photos/id/337/200/200' },
+    { id: 14, name: 'Dileep Gowda', src: 'https://picsum.photos/id/23/200/200' },
+    { id: 15, name: 'Shree Vani', src: 'https://picsum.photos/id/16/200/200' },
+    { id: 16, name: 'Chithra Rammoorthy', src: 'https://picsum.photos/id/7/200/200' },
+    { id: 17, name: 'Savan Savani', src: 'https://picsum.photos/id/24/200/200' },
+    { id: 18, name: 'Kl Rahul', src: 'https://picsum.photos/id/75/200/200' },
+    { id: 19, name: 'Inderjot Singh', src: 'https://picsum.photos/id/9/200/200' },
+    { id: 20, name: 'Sagar Devanga', src: 'https://picsum.photos/id/1/200/200' },
+  ];
 
   constructor(private postsService: PostsService, private router: Router, private userService: UsersService, private fb: FormBuilder,
     private facebookService: FacebookService,) {
@@ -43,9 +68,16 @@ export class HomeComponent implements OnInit {
     this.post.time = new Date().toISOString();
     this.post.likes = 0;
     this.post.userLiked = [];
-    this.postsService.create(this.post).then(() => {
-      console.log('Created new item successfully!');
-    });
+    if (this.textpost || this.url) {
+      this.postsService.create(this.post).then(() => {
+        this.previewUrlFlag = false;
+        this.url = null;
+        this.textpost = "";
+        console.log('Created new item successfully!');
+      });
+    } else {
+      alert("Empty Post");
+    }
     console.log(this.user);
     console.log(this.post);
   }
@@ -90,6 +122,7 @@ export class HomeComponent implements OnInit {
 
   fileData: File = null;
   previewUrl: any = null;
+  previewUrlFlag: boolean = false;
   fileProgress(fileInput: any) {
     this.fileData = <File>fileInput.target.files[0];
     this.preview();
@@ -107,6 +140,7 @@ export class HomeComponent implements OnInit {
     reader.onload = (_event) => {
       this.previewUrl = reader.result;
       this.url = this.previewUrl;
+      this.previewUrlFlag = true;
     }
     console.log(this.url);
   }

@@ -27,7 +27,9 @@ export class SignUpComponent implements OnInit {
     this.getYears();
     this.getCurrentMonthName();
     this.getNumberOfDays();
+    this.retrievePosts();
     this.status = false;
+
   }
   public days: any[] = [];
   public years: any[] = [];
@@ -93,7 +95,10 @@ export class SignUpComponent implements OnInit {
   signUpForm = this.fb.group({
     firstName: [null, Validators.required],
     surName: [null, Validators.required],
-    emailAddress: [null, Validators.required],
+    emailAddress: ['', [
+      Validators.required,
+      Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}'),
+    ]],
     newPassword: [null, Validators.required],
     day: [this.currentDay, Validators.required],
     month: [this.currentMonth, Validators.required],
@@ -116,6 +121,9 @@ export class SignUpComponent implements OnInit {
   get gender() {
     return this.signUpForm.get('gender');
   }
+  get year() {
+    return this.signUpForm.get('year');
+  }
   getDays() {
     for (let i = 1; i <= 31; i++) {
       this.days.push(i);
@@ -131,18 +139,28 @@ export class SignUpComponent implements OnInit {
     this.currentMonthName = monthData[0].monthName;
   }
   onSignUp() {
-    // this.arr1.forEach((ele) => {
-    //   if (this.signUpForm.value.emailAddress == ele.emailAddress) {
-    //     alert("email exist")
-    //     this.status1 = false;
-    //   }
-    // });
-    if (this.signUpForm.valid) {
+
+    try {
+      this.arr1.forEach((ele) => {
+        if (this.signUpForm.value.emailAddress == ele.emailAddress) {
+          alert("email exist");
+          this.status1 = false;
+        }
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    if (this.signUpForm.valid && this.status1) {
+
       this.saveUser();
       localStorage.setItem("user", this.signUpForm.value.emailAddress);
       localStorage.setItem("pass", this.signUpForm.value.newPassword);
       this.userService.setuser(this.signUpForm.value);
-      this.router.navigate(['home']);
+      //this.router.navigate(['home']);
+      this.router.navigate(['home'])
+        .then(() => {
+          window.location.reload();
+        });
     } else {
       this.validateAllFields(this.signUpForm)
     }
