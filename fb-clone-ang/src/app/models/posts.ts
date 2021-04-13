@@ -7,4 +7,6 @@ export default class Posts {
   time: string;
   likes: number;
   userLiked: Array<any>;
+  createdBy: string;
+  editProfile:string;
 }

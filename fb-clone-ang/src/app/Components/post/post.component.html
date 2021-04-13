@@ -46,8 +46,8 @@
             style="width: 70px; margin-right: 5px"
             (click)="likeUpdate()"
           >
-            <i class="fas fa-thumbs-up"></i>
-            <span>Like</span>
+            <i [ngStyle]="{ 'color':likedByCurrentUser? 'blue':'black'}" class="fas fa-thumbs-up"></i>
+            <span [ngStyle]="{ 'color':likedByCurrentUser? 'blue':'black'}">Like</span>
           </button>
           <button
             type="button"

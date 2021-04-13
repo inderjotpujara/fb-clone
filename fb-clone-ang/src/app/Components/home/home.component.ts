@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { PostsService } from 'src/app/services/posts.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
   ];
 
   constructor(private postsService: PostsService, private router: Router, private userService: UsersService, private fb: FormBuilder,
-    private facebookService: FacebookService,) {
+    private facebookService: FacebookService, private cdRef: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
@@ -92,6 +92,7 @@ export class HomeComponent implements OnInit {
       )
     ).subscribe(data => {
       this.arr = data;
+      this.cdRef.detectChanges()
     });
     console.log(this.arr);
 

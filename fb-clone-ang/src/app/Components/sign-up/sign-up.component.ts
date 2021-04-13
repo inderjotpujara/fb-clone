@@ -104,7 +104,7 @@ export class SignUpComponent implements OnInit {
     month: [this.currentMonth, Validators.required],
     year: [this.currentYear, Validators.required],
     gender: [null, Validators.required],
-    imgUrl: [null],
+    imgUrl: ['https://i.stack.imgur.com/l60Hf.png', Validators.required],
   });
   get firstName() {
     return this.signUpForm.get('firstName');
@@ -189,6 +189,8 @@ export class SignUpComponent implements OnInit {
   }
 
   saveUser(): void {
+    let userInfo = this.signUpForm.value
+    userInfo.userInfo = 'Hi this is preset user info. You can edit it anytime'
     this.userService.create(this.signUpForm.value).then(() => {
       console.log('Created new user successfully!');
     });
