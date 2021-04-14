@@ -1,5 +1,12 @@
 export default class Posts {
-  key: string;
+  email: string;
   name: string;
-  post: string;
+  dp: string;
+  text: string;
+  postImg: string;
+  time: string;
+  likes: number;
+  userLiked: Array<any>;
+  createdBy: string;
+  editProfile:string;
 }

@@ -31,6 +31,11 @@ export class UsersService {
     return this.userref.update(key, value);
   }
 
+  refreshUser(){
+
+    return this.db1.database.ref('users')
+  }
+
   delete(key: string): Promise<void> {
     return this.userref.remove(key);
   }

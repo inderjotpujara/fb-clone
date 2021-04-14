@@ -83,8 +83,8 @@ input {
   overflow: hidden;
   padding: 0 82px;
   text-shadow: none;
-  margin-top: 14px;
-  margin-bottom: 14px;
+  /* margin-top: 14px;
+  margin-bottom: 14px; */
 }
 .main-div {
   display: flex;
@@ -104,4 +104,7 @@ input {
 }
 .margin-top {
   margin-top: 2px;
+}
+.name-input-width{
+  width: 14.3rem;
 }

@@ -1,7 +1,3 @@
-.homepage {
-  background-color: #f0f2f5;
-}
-
 .fa {
   padding: 15px;
   font-size: 20px;
@@ -15,10 +11,10 @@
 
 .fa-facebook {
   background: #3b5998;
-  color: white;
+  color: #b43243;
 }
 .home-header {
-  background-color: rgb(211, 197, 197);
+  background-color: #b43243;
 }
 img {
   height: 2.5rem;
@@ -53,6 +49,10 @@ img {
   width: 3rem;
   margin-left: 8rem;
 }
+.img-msg {
+  height: 1.5rem;
+  width: 3rem;
+}
 .side-nav-font {
   font-size: 0.9375rem;
   font-weight: 500;
@@ -71,7 +71,7 @@ img {
 .post-img {
   height: 50px;
   width: 50px;
-  border-radius: 25px;
+  border-radius: 20px;
 }
 .post-live-img {
   height: 70px;
@@ -101,8 +101,8 @@ button {
   background: none;
 }
 .preview {
-  width: 35rem;
-  height: 14rem;
+  width: 304px;
+  height: 68px;
 }
 .navbar {
   /* overflow: hidden;
@@ -131,35 +131,3 @@ button {
   height: 2.5rem;
   background-color: #ebeef5;
 }
-
-.scrollable:hover {
-  overflow-y: auto !important;
-}
-
-div::-webkit-scrollbar {
-  width: 5px;
-}
-
-div::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
-div::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: none;
-}
-.chat-nav-font {
-  font-size: 1.5em;
-  font-weight: 500;
-  color: #65676b;
-}
-.post-button{
-  background-color: #1b74e4;
-  padding: 0rem 2.5rem 0rem 2.5rem;
-}
-
-img {
-  height:2.0rem;
-  border-radius: 1rem;
-}
-

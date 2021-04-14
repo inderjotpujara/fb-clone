@@ -1,22 +1,24 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FacebookGuard } from './facebook.guard';
 import { LoginComponent } from './Components/login/login.component';
 import { SignUpComponent } from "./Components/sign-up/sign-up.component";
 import { HomeComponent } from './Components/home/home.component';
-import { PostComponent } from './post/post.component';
+import { PostComponent } from './Components/post/post.component';
 import { ProfileComponent } from './Components/profile/profile.component';
+import { HeaderComponent } from './Components/header/header.component';
 
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: './login',
     pathMatch: 'full'
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    data:{header:false}
   },
   {
     path: "sign-up",
@@ -26,7 +28,8 @@ const routes: Routes = [
   {
     path: "home",
     component: HomeComponent,
-    canActivate: [FacebookGuard]
+    canActivate: [FacebookGuard],
+    data:{header:true}
   },
   {
     path: "post",
@@ -36,6 +39,11 @@ const routes: Routes = [
   {
     path: "profile",
     component: ProfileComponent,
+    canActivate: [FacebookGuard]
+  },
+  {
+    path: "header",
+    component: HeaderComponent,
     canActivate: [FacebookGuard]
   }
 ];
