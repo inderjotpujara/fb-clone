@@ -230,13 +230,14 @@
       </div>
     </div>
     <div
-      style="display: flex; flex-direction: column; background-color: #f0f2f5"
+      style="display: flex; flex-direction: column; background-color: #f0f2f5;"
     >
-      <div *ngFor="let item of arr.reverse(); trackBy: checkChanges">
+      <div *ngFor="let item of arr.reverse(); trackBy: checkChanges" >
         <app-post
           [item]="item"
           (newItemEvent)="updateLikesDb($event)"
           (newItemEvent2)="updadateLikesArrayDb2($event)"
+
         ></app-post>
       </div>
     </div>
