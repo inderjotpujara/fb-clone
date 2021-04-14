@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, IterableDiffers, KeyValueDiffers, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { PostsService } from 'src/app/services/posts.service';
 import { UsersService } from 'src/app/services/users.service';
@@ -25,8 +25,9 @@ export class HomeComponent implements OnInit {
   user: any;
   userLiked = [];
   postFlag = true;
+  iterableDiffer
 
-  public friendslist = [
+  friendslist = [
     { id: 1, name: 'Vaishak Chandra', src: 'https://picsum.photos/id/237/200/200' },
     { id: 2, name: 'Shashank Yadav', src: 'https://picsum.photos/id/37/200/200' },
     { id: 3, name: 'Virat Kohli', src: 'https://picsum.photos/id/23/200/200' },
@@ -50,14 +51,22 @@ export class HomeComponent implements OnInit {
   ];
 
   constructor(private postsService: PostsService, private router: Router, private userService: UsersService, private fb: FormBuilder,
-    private facebookService: FacebookService, private cdRef: ChangeDetectorRef) {
+    private facebookService: FacebookService, private cdRef: ChangeDetectorRef, private iterableDiffers: IterableDiffers) {
   }
 
   ngOnInit(): void {
     this.getUser();
     this.retrievePosts();
+    this.iterableDiffer = this.iterableDiffers.find([]).create(null);
     this.timenow = new Date().valueOf();
   }
+
+  ngDoCheck() {
+    let changes = this.iterableDiffer.diff(this.friendslist);
+    if (changes) {
+        console.log('Changes detected!');
+    }
+}
 
   savePost(): void {
     this.post.email = this.user.emailAddress;
@@ -82,6 +91,12 @@ export class HomeComponent implements OnInit {
     console.log(this.post);
   }
 
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    
+    this.cdRef.checkNoChanges()
+  }
 
   retrievePosts(): void {
     this.postsService.getAll().snapshotChanges().pipe(
@@ -92,6 +107,7 @@ export class HomeComponent implements OnInit {
       )
     ).subscribe(data => {
       this.arr = data;
+      this.arr.reverse();
       this.cdRef.detectChanges()
     });
     console.log(this.arr);
@@ -180,15 +196,22 @@ export class HomeComponent implements OnInit {
   updadateLikesArrayDb2(newItem2: any) {
     console.log(newItem2.userliked);
     console.log(newItem2.flag);
+    console.log(newItem2.flag);
 
     if (!newItem2.userliked) {
       newItem2.userliked = []
     }
     if (newItem2.flag) {
-      newItem2.userliked.push(this.user.key);
+      let obj2 = {
+        key: this.user.key,
+        fname: this.user.firstName
+      }
+      // console.log(obj2);
+
+      newItem2.userliked.push(obj2);
     } else {
       newItem2.userliked.forEach((ele, idx) => {
-        if (ele === this.user.key) {
+        if (ele.key === this.user.key) {
           console.log("deleting");
 
           newItem2.userliked.splice(idx, 1);

@@ -39,7 +39,7 @@ export class ProfileComponent implements OnInit {
   }
   retrievePosts(): void {
     let postsref =this.postsService.getPostByUserId(this.user.key)
-    postsref.orderByChild('createdBy').equalTo(this.user.key).on("value", (snapshot) => {
+    postsref.orderByChild('email').equalTo(this.user.emailAddress).on("value", (snapshot) => {
       console.log(snapshot.val());
       let tempPosts=[]
       snapshot.forEach((data)=> {
@@ -72,6 +72,10 @@ export class ProfileComponent implements OnInit {
     // editref.orderByChild('editProfile').equalTo(this.user.key).on("value",(snapshot)=>{
     //   console.log(snapshot.val);
     // })
+  }
+
+  checkChanges(index, item) {
+    return item.key
   }
 
   workChanged(type, ref){

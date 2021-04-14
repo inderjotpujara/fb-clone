@@ -14,7 +14,7 @@
         <img
           *ngIf="user?.imgUrl"
           src="{{ user?.imgUrl }}"
-          class="img-rounded post-img mr-2"
+          class="img-rounded mr-2"
           alt="Home"
         />
         <span class="side-nav-font sticky-top">{{ user?.firstName }}</span>
@@ -151,7 +151,7 @@
     "
     class="col-6 p-0 m-0 scrollable w-100"
   >
-    <div class="ml-4" style="background-color: #f0f2f5">
+    <div class="ml-1 mt-3" style="background-color: #ffffff;box-shadow: 0 2px 3px 0 rgb(204, 199, 199);">
       <div class="row mt-4 ml-4">
         <div class="mt-1">
           <img
@@ -172,7 +172,7 @@
           />
         </div>
 
-        <div *ngIf="postFlag" class="mt-3">
+        <div *ngIf="postFlag" class="mt-2 ml-1">
           <button
             type="button"
             class="btn btn-primary post-button font-weight-normal"
@@ -182,31 +182,30 @@
           </button>
         </div>
 
-        <div *ngIf="previewUrlFlag" class="ml-2">
+        <div *ngIf="previewUrlFlag" class="ml-3 mt-3">
           <img [src]="previewUrl" class="preview" />
         </div>
       </div>
-
+<hr>
       <div style="display: flex; flex-direction: row" class="ml-4">
-        <div class="ml-4">
-          <button (click)="onClick()">
-            <img
+        <div class="mt-1 ml-3">
+          <button class="d-flex align-items-center" (click)="onClick()">
+            <!-- <img
               src="https://previews.123rf.com/images/misteremil/misteremil1805/misteremil180500024/102323134-live-camera-icon-isoalted-on-white-back.jpg"
               class="img-rounded post-live-img"
               alt="Home"
-            />
-            <span class="side-nav-font">Live Video</span>
+            /> -->
+            <i class="fas fa-video" style="color: red; font-size: 1.8rem;"></i>
+            <span class="side-nav-font ml-2 ">Live Video</span>
           </button>
         </div>
 
-        <div class="file-upload mt-3 ml-4">
-          <button>
-            <label for="upload-1">
-              <img
-                src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-and-shapes-5/177800/233-512.png"
-                class="img-rounded post-photo-img mr-2"
-                alt="Home"
-              />Photo/Video
+        <div class="file-upload mt-1 post-left">
+          <button >
+            <label for="upload-1" class="d-flex align-items-center">
+              <i class="far fa-images" style="color:green; font-size: 1.8rem;"></i>
+              <span class="side-nav-font ml-2"> Photo/Video</span>
+
             </label>
             <input
               type="file"
@@ -216,23 +215,24 @@
             />
           </button>
         </div>
-        <div class="ml-2">
-          <button>
-            <img
+        <div class="post-left mt-1">
+          <button class="d-flex align-items-center">
+            <!-- <img
               src="https://png.pngtree.com/png-vector/20190419/ourmid/pngtree-yellow-smiley-face-png-image_960884.jpg"
               class="img-rounded post-photo-activity"
               alt="Home"
-            />
-            <span class="side-nav-font">Feeling/Activity</span>
+            /> -->
+            <i class="far fa-smile-beam" style="color:yellow; font-size: 1.8rem;"></i>
+            <span class="side-nav-font ml-2">Feeling/Activity</span>
           </button>
         </div>
-        <button (click)="savePost()">post</button>
+
       </div>
     </div>
     <div
       style="display: flex; flex-direction: column; background-color: #f0f2f5;"
     >
-      <div *ngFor="let item of arr.reverse(); trackBy: checkChanges" >
+      <div *ngFor="let item of arr; trackBy: checkChanges">
         <app-post
           [item]="item"
           (newItemEvent)="updateLikesDb($event)"
@@ -305,11 +305,120 @@
         </button>
       </div>
     </div>
-    <div class="mt-3 ml-4" *ngFor="let friend of friendslist">
+    <div class="mt-3 ml-4" >
       <button>
-        <img src="{{ friend.src }}" class="img-rounded" alt="Home" />
-        <span class="side-nav-font ml-2">{{ friend.name }}</span>
+        <img src="https://picsum.photos/id/237/200/200" class="img-rounded" alt="Home" />
+        <span class="side-nav-font ml-2">Vaishak Chandra</span>
       </button>
     </div>
+    <div class="mt-3 ml-4" >
+      <button>
+        <img src="https://picsum.photos/id/37/200/200" class="img-rounded" alt="Home" />
+        <span class="side-nav-font ml-2">Shashank Yadav</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-4" >
+      <button>
+        <img src="https://picsum.photos/id/235/200/200" class="img-rounded" alt="Home" />
+        <span class="side-nav-font ml-2">Vini Chimania</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-4" >
+      <button>
+        <img src="https://picsum.photos/id/26/200/200" class="img-rounded" alt="Home" />
+        <span class="side-nav-font ml-2">Sadanand Roy</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-4" >
+      <button>
+        <img src="https://picsum.photos/id/24/200/200" class="img-rounded" alt="Home" />
+        <span class="side-nav-font ml-2">Inderjot Pujara</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-4" >
+      <button>
+        <img src="https://picsum.photos/id/28/200/200" class="img-rounded" alt="Home" />
+        <span class="side-nav-font ml-2">Sagar Devanga</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-4" >
+      <button>
+        <img src="https://picsum.photos/id/98/200/200" class="img-rounded" alt="Home" />
+        <span class="side-nav-font ml-2">Nikitha Madhu</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-4" >
+      <button>
+        <img src="https://picsum.photos/id/87/200/200" class="img-rounded" alt="Home" />
+        <span class="side-nav-font ml-2">Karthik Hr</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-4" >
+      <button>
+        <img src="https://picsum.photos/id/65/200/200" class="img-rounded" alt="Home" />
+        <span class="side-nav-font ml-2">Guru Raj</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-4" >
+      <button>
+        <img src="https://picsum.photos/id/83/200/200" class="img-rounded" alt="Home" />
+        <span class="side-nav-font ml-2">Savan Savani</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-4" >
+      <button>
+        <img src="https://picsum.photos/id/41/200/200" class="img-rounded" alt="Home" />
+        <span class="side-nav-font ml-2">Kl Rahul</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-4" >
+      <button>
+        <img src="https://picsum.photos/id/42/200/200" class="img-rounded" alt="Home" />
+        <span class="side-nav-font ml-2">Eoin Morgan</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-4" >
+      <button>
+        <img src="https://picsum.photos/id/44/200/200" class="img-rounded" alt="Home" />
+        <span class="side-nav-font ml-2">Kevin Peterson</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-4" >
+      <button>
+        <img src="https://picsum.photos/id/45/200/200" class="img-rounded" alt="Home" />
+        <span class="side-nav-font ml-2">Bidisha Paul</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-4" >
+      <button>
+        <img src="https://picsum.photos/id/26/200/200" class="img-rounded" alt="Home" />
+        <span class="side-nav-font ml-2">Dhanashree Chahal</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-4" >
+      <button>
+        <img src="https://picsum.photos/id/85/200/200" class="img-rounded" alt="Home" />
+        <span class="side-nav-font ml-2">Chithra Rammoorthy</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-4" >
+      <button>
+        <img src="https://picsum.photos/id/31/200/200" class="img-rounded" alt="Home" />
+        <span class="side-nav-font ml-2">Prashanth Rai</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-4" >
+      <button>
+        <img src="https://picsum.photos/id/65/200/200" class="img-rounded" alt="Home" />
+        <span class="side-nav-font ml-2">Manjunath Aithal</span>
+      </button>
+    </div>
+    <div class="mt-3 ml-4" >
+      <button>
+        <img src="https://picsum.photos/id/98/200/200" class="img-rounded" alt="Home" />
+        <span class="side-nav-font ml-2">Ankith Soni</span>
+      </button>
+    </div>
+    v
   </div>
 </div>

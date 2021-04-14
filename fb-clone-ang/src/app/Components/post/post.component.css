@@ -81,3 +81,13 @@ hr {
     outline: 0;
     box-shadow: none
 }
+.post-img {
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+}
+.post-img-2 {
+  height: 48px;
+  width: 48px;
+  border-radius: 25px;
+}

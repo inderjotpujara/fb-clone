@@ -127,7 +127,7 @@ button {
 }
 .input-rounded {
   border-radius: 2rem;
-  width: 25rem;
+  width: 26.5rem;
   height: 2.5rem;
   background-color: #ebeef5;
 }
@@ -155,11 +155,13 @@ div::-webkit-scrollbar-thumb {
 }
 .post-button{
   background-color: #1b74e4;
-  padding: 0rem 2.5rem 0rem 2.5rem;
+  padding:0.43rem 2.3rem 0.43rem 2.3rem;;
 }
 
 img {
   height:2.0rem;
   border-radius: 1rem;
 }
-
+.post-left{
+  margin-left: 4rem;
+}
