@@ -4,14 +4,15 @@
 
 export const environment = {
   production: false,
-  firebaseConfig : {
-        apiKey: "AIzaSyAxo9SfFDzHnDUKPiXWYRW9JwBvpZuC5Po",
-        authDomain: "fb-clone-cd5b2.firebaseapp.com",
-        projectId: "fb-clone-cd5b2",
-        storageBucket: "fb-clone-cd5b2.appspot.com",
-        messagingSenderId: "924092097329",
-        appId: "1:924092097329:web:dcb0c273e9bb06dbd8c610",
-      }
+  firebaseConfig: {
+    apiKey: "AIzaSyAvml04Yy9Y-wXjIdUwu1W3PEDKGjg8E0Q",
+    authDomain: "fb-clone-aa9e3.firebaseapp.com",
+    projectId: "fb-clone-aa9e3",
+    storageBucket: "fb-clone-aa9e3.appspot.com",
+    messagingSenderId: "247483971242",
+    appId: "1:247483971242:web:184187d4f04a30892282d3",
+    measurementId: "G-6JMVCW83XJ"
+  }
 };
 
 

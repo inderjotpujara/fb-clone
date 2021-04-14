@@ -92,6 +92,7 @@ export class HomeComponent implements OnInit {
       )
     ).subscribe(data => {
       this.arr = data;
+      this.arr.reverse();
       this.cdRef.detectChanges()
     });
     console.log(this.arr);
@@ -180,15 +181,22 @@ export class HomeComponent implements OnInit {
   updadateLikesArrayDb2(newItem2: any) {
     console.log(newItem2.userliked);
     console.log(newItem2.flag);
+    console.log(newItem2.flag);
 
     if (!newItem2.userliked) {
       newItem2.userliked = []
     }
     if (newItem2.flag) {
-      newItem2.userliked.push(this.user.key);
+      let obj2 = {
+        key: this.user.key,
+        fname: this.user.firstName
+      }
+      // console.log(obj2);
+
+      newItem2.userliked.push(obj2);
     } else {
       newItem2.userliked.forEach((ele, idx) => {
-        if (ele === this.user.key) {
+        if (ele.key === this.user.key) {
           console.log("deleting");
 
           newItem2.userliked.splice(idx, 1);

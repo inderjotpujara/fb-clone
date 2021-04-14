@@ -16,6 +16,7 @@ export class PostComponent implements OnInit {
 
   loaderActive = true;
   likedByCurrentUser = false;
+  showLikenames = false;
   likedIndex
   // userLiked = [];
   constructor(private postsService: PostsService, private usersService: UsersService) {
@@ -27,9 +28,10 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {
     // this.retrievePosts();
     // console.log('init');
+    this.checkLikedArray();
     this.user = JSON.parse(this.usersService.getuser())
     this.likedIndex = this.item.userLiked.findIndex((id) => {
-      return id == this.user.key
+      return id.key == this.user.key
     })
     if (this.likedIndex != -1) {
       this.likedByCurrentUser = true
@@ -45,13 +47,22 @@ export class PostComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges): void {
     //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
     //Add '${implements OnChanges}' to the class.
-
+    this.checkLikedArray();
     if (changes.item.currentValue) {
       // console.log(changes.item.currentValue)
       this.loaderActive = false //TODO
 
     }
 
+  }
+
+  checkLikedArray() {
+    if (this.item.userLiked.length > 0) {
+      this.showLikenames = true;
+    }
+    else {
+      this.showLikenames = false;
+    }
   }
 
   // retrievePosts(): void {
@@ -75,9 +86,9 @@ export class PostComponent implements OnInit {
     }
     this.likedByCurrentUser ? this.item.likes++ : this.item.likes--;
     console.log(obj);
+    // this.checkLikedArray();
     this.newItemEvent.emit(this.item);
     this.newItemEvent2.emit(obj);
-
     return
   }
 

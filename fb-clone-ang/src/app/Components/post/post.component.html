@@ -31,7 +31,21 @@
         <hr />
         <div class="d-flex justify-content-between align-items-center">
           <div class="d-flex flex-row icons d-flex align-items-center">
-            <i class="fa fa-heart" aria-hidden="true">{{ item.likes }}</i>
+            <i
+              class="fas fa-thumbs-up"
+              aria-hidden="true"
+              style="color: rgb(57, 57, 219)"
+            >
+              {{ item.likes }}</i
+            >
+            <div *ngIf="showLikenames" class="text-muted mx-2">
+              Liked by
+              <span *ngFor="let i of item.userLiked; let index = index">
+                <span *ngIf="index >= 2"> & {{ item.likes - 2 }} others</span>
+                <span *ngIf="index != 0 && index < 2">,</span
+                ><span *ngIf="index < 2">{{ i.fname }}</span>
+              </span>
+            </div>
           </div>
           <div class="d-flex flex-row muted-color">
             <span>2 comments</span>
@@ -46,8 +60,13 @@
             style="width: 70px; margin-right: 5px"
             (click)="likeUpdate()"
           >
-            <i [ngStyle]="{ 'color':likedByCurrentUser? 'blue':'black'}" class="fas fa-thumbs-up"></i>
-            <span [ngStyle]="{ 'color':likedByCurrentUser? 'blue':'black'}">Like</span>
+            <i
+              [ngStyle]="{ color: likedByCurrentUser ? 'blue' : 'black' }"
+              class="fas fa-thumbs-up"
+            ></i>
+            <span [ngStyle]="{ color: likedByCurrentUser ? 'blue' : 'black' }"
+              >Like</span
+            >
           </button>
           <button
             type="button"
@@ -68,13 +87,13 @@
         <div class="comments">
           <div class="d-flex flex-row mb-2">
             <img
-              src="https://www.businessinsider.in/thumb.cms?msid=70228055&width=1200&height=900"
+              src="https://i.guim.co.uk/img/media/cbbb9d4829cdfe592c89a40b20db96a4d278b2bf/0_201_4337_2602/master/4337.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=bd86cfa0cd7625f83119ac58ab1385e7"
               width="40"
               class="rounded-image"
             />
             <div class="d-flex flex-column ml-2">
-              <span class="name">Motu Patlu</span>
-              <small class="comment-text">lOOKING bEAUTIFUL</small>
+              <span class="name">Cristiano</span>
+              <small class="comment-text">Good scene bro!</small>
               <div class="d-flex flex-row align-items-center status">
                 <small>Like</small> <small>Reply</small> <small>18 mins</small>
               </div>
@@ -82,13 +101,13 @@
           </div>
           <div class="d-flex flex-row mb-2">
             <img
-              src="https://www.newidea.com.au/media/67740/mickey-main.jpg"
+              src="https://icdn.football-espana.net/wp-content/uploads/2020/11/merlin_153612873_5bb119b9-8972-4087-b4fd-371cab8c5ba2-superJumbo.jpg"
               width="40"
               class="rounded-image"
             />
             <div class="d-flex flex-column ml-2">
-              <span class="name">Micky Mouse</span>
-              <small class="comment-text">Like Comment and share :)</small>
+              <span class="name">Messi</span>
+              <small class="comment-text">Thanks</small>
               <div class="d-flex flex-row align-items-center status">
                 <small>Like</small> <small>Reply</small> <small>8 mins</small>
               </div>
