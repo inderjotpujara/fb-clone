@@ -22,7 +22,7 @@ export class PostsService {
 
   getPostByUserId(id){
     return this.db.database.ref('posts')
-    
+
   }
 
   create(post): any {
