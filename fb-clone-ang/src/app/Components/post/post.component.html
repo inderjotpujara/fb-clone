@@ -41,7 +41,7 @@
             <div *ngIf="showLikenames" class="text-muted mx-2">
               Liked by
               <span *ngFor="let i of item.userLiked; let index = index">
-                <span *ngIf="index >= 2"> & {{ item.likes - 2 }} others</span>
+                <span *ngIf="index == 2"> & {{ item.likes - 2 }} others</span>
                 <span *ngIf="index != 0 && index < 2">,</span
                 ><span *ngIf="index < 2">{{ i.fname }}</span>
               </span>
